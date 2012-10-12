@@ -1791,3 +1791,124 @@ Served asset /application.js - 304 Not Modified (1ms)
 
 Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-12 02:23:07 -0700
 Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCourses (20121012074851)
+  [1m[35m (0.9ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.4ms)[0m  PRAGMA index_list("courses")
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "courses" WHERE "courses"."course_num" = 'course1' LIMIT 1[0m
+  [1m[35mCourse Exists (0.6ms)[0m  SELECT 1 AS one FROM "courses" WHERE "courses"."title" = 'course1' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "courses" WHERE "courses"."course_num" = 'course2' LIMIT 1[0m
+  [1m[35mCourse Exists (0.1ms)[0m  SELECT 1 AS one FROM "courses" WHERE "courses"."title" = 'course2' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "courses" WHERE "courses"."course_num" = 'course3' LIMIT 1[0m
+  [1m[35mCourse Exists (0.1ms)[0m  SELECT 1 AS one FROM "courses" WHERE "courses"."title" = 'course3' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "courses" WHERE "courses"."course_num" = 'course4' LIMIT 1[0m
+  [1m[35mCourse Exists (0.1ms)[0m  SELECT 1 AS one FROM "courses" WHERE "courses"."title" = 'course4' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCourse Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "courses" WHERE "courses"."course_num" = 'course5' LIMIT 1[0m
+  [1m[35mCourse Exists (0.1ms)[0m  SELECT 1 AS one FROM "courses" WHERE "courses"."title" = 'course5' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-12 02:37:03 -0700
+Connecting to database specified by database.yml
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+  Rendered courses/index.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 150ms (Views: 69.3ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-12 02:37:04 -0700
+Served asset /application.css - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:04 -0700
+Served asset /application.js - 200 OK (29ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:04 -0700
+Served asset /jquery_ujs.js - 200 OK (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:04 -0700
+Served asset /jquery.js - 200 OK (1ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-12 02:37:11 -0700
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" 
+  Rendered courses/index.html.haml within layouts/application (1.9ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-12 02:37:11 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:11 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:11 -0700
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:11 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-12 02:37:12 -0700
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+  Rendered courses/index.html.haml within layouts/application (5.7ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-12 02:37:12 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:12 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:12 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:12 -0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-12 02:37:14 -0700
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" 
+  Rendered courses/index.html.haml within layouts/application (1.5ms)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-10-12 02:37:14 -0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:14 -0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:14 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-12 02:37:14 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
