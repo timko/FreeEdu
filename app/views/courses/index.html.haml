@@ -1,0 +1,19 @@
+%h1 Courses
+
+%div#settings{:align => "right"}
+  =link_to 'Cache Settings', courses_path #this is a placeholder path for now
+
+%table#courses
+  %thead
+    %tr
+      %th Course Number
+      %th Title
+      %th Professor
+      %th Webcasts
+  %tbody
+    - @courses.each do |course|
+      %tr
+        %td= course.course_num 
+        %td= course.title
+        %td= course.professor
+        %td= link_to "See Webcasts For This Course", courses_path #this is a placeholder path for now
