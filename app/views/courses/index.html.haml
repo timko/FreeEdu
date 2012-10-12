@@ -16,4 +16,4 @@
         %td= course.course_num 
         %td= course.title
         %td= course.professor
-        %td= link_to "See Webcasts For This Course", courses_path #this is a placeholder path for now
+        %td= link_to "See Webcasts For #{course.title}", courses_path #this is a placeholder path for now

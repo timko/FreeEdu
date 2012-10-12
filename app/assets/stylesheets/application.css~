@@ -17,7 +17,7 @@ a {
   font-weight: bold;
 }
 h1 {
-  color: maroon;
+  color: blue;
   font-size: 150%;
   font-style: italic;
   display: block;
@@ -43,6 +43,7 @@ table#courses th {
   border: 2px solid white;
   font-weight: bold;
   background-color: gold;
+  color: blue
 }
 table#courses th, table#courses td {
   padding: 4px;

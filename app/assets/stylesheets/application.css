@@ -43,10 +43,12 @@ table#courses th {
   border: 2px solid white;
   font-weight: bold;
   background-color: gold;
+  color: blue
 }
 table#courses th, table#courses td {
   padding: 4px;
   text-align: left;
+  color: blue
 }
 #notice #warning {
   background: rosybrown;

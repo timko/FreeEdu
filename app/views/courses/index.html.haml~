@@ -1,6 +1,6 @@
 %h1 Courses
 
-%div{:align => "right"}
+%div#settings{:align => "right"}
   =link_to 'Cache Settings', courses_path #this is a placeholder path for now
 
 %table#courses
