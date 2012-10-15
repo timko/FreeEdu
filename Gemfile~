@@ -20,7 +20,7 @@ group :development, :test do
 end
 
 gem 'gherkin'
-gem 'heroku'
+#gem 'heroku'
 
 
 group :production do
