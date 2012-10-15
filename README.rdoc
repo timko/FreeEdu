@@ -1,4 +1,4 @@
-TO AVOID HEADACHES:
+==TO AVOID HEADACHES:
 
 run "git rm --cached log/*" and "git rm --cached tmp/*"
 
