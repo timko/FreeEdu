@@ -3,12 +3,17 @@ FreEdu::Application.routes.draw do
   # first created -> highest priority.
 
   root :to => 'courses#index'
+  #root :to => 'videos#video_list'
+  #root :to => 'videos#watch'
+
+  match 'courses/:id/video_list' => 'videos#video_list'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   resources :courses
+  resources :videos
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
