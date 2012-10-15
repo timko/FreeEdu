@@ -1,3 +1,7 @@
+=TO AVOID HEADACHES:
+
+run "git rm --cached log/*" and "git rm --cached tmp/*"
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create
