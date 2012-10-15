@@ -12,9 +12,12 @@ describe VideosController do
       response.should render_template('videos/index')
     end
   
-    it 'should make the videos associated with the course available to the template'
-    it 'should have a RESTful route '
-
+    it 'should make the videos associated with the course available to the template' do 
+      assigns(:videos).should == Video.find_by_course_id(:course_id)
+    end
+    it 'should have a RESTful route ' do
+      videos_path.should == '/courses/:course_id/videos'
+    end
   end
 
 end
