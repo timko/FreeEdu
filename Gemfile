@@ -17,10 +17,10 @@ group :development, :test do
 #  gem 'simplecov'
   gem 'factory_girl_rails'
   gem 'ZenTest'
+  gem 'gherkin'
 end
 
-gem 'gherkin'
-#gem 'heroku'
+gem 'heroku'
 
 
 group :production do
