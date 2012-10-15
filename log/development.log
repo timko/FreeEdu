@@ -3077,3 +3077,456 @@ Served asset /jquery_ujs.js - 304 Not Modified (0ms)
 
 Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 19:56:00 -0700
 Served asset /jquery.js - 304 Not Modified (6ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (35.1ms)[0m  [1mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_num" varchar(255), "title" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "university" varchar(255)) [0m
+  [1m[35m (11.1ms)[0m  CREATE TABLE "videos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time" varchar(255), "size" varchar(255), "course_id" varchar(255), "created_at" datetime, "updated_at" datetime, "video_num" varchar(255)) 
+  [1m[36m (13.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36m (15.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (13.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121015014003')[0m
+  [1m[35m (13.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121012074851')
+  [1m[36m (15.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121014234811')[0m
+  [1m[35m (12.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121015005906')
+  [1m[36m (13.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121015005833')[0m
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (29.7ms)[0m  [1mCREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_num" varchar(255), "title" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "university" varchar(255)) [0m
+  [1m[35m (32.2ms)[0m  CREATE TABLE "videos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time" varchar(255), "size" varchar(255), "course_id" varchar(255), "created_at" datetime, "updated_at" datetime, "video_num" varchar(255)) 
+  [1m[36m (10.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36m (11.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (13.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121015014003')[0m
+  [1m[35m (13.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121012074851')
+  [1m[36m (13.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121014234811')[0m
+  [1m[35m (12.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121015005906')
+  [1m[36m (15.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121015005833')[0m
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 20:10:47 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (13.3ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 20:10:48 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:48 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:48 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:48 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 20:10:51 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (41.4ms)
+Completed 200 OK in 48ms (Views: 46.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 20:10:51 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:51 -0700
+Served asset /jquery.js - 304 Not Modified (12ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:51 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:51 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 20:10:52 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (6.3ms)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 20:10:52 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:52 -0700
+Served asset /jquery.js - 304 Not Modified (11ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:52 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:52 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 20:10:53 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (5.1ms)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 20:10:53 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:53 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:53 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:53 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 20:10:54 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (5.8ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:55 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:55 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 20:10:55 -0700
+Served asset /bootstrap.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:55 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 20:10:55 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (5.3ms)
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 20:10:55 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:56 -0700
+Served asset /jquery.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:56 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:56 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 20:10:57 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (4.7ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 20:10:57 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:57 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:57 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:57 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 20:10:58 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (5.7ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 20:10:58 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:58 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:58 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:58 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 20:10:59 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (5.0ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:59 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:59 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 20:10:59 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 20:10:59 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+  [1m[36m (0.9ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (86.3ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_num" varchar(255), "title" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "university" varchar(255)) 
+  [1m[36m (23.8ms)[0m  [1mCREATE TABLE "videos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time" varchar(255), "size" varchar(255), "course_id" varchar(255), "created_at" datetime, "updated_at" datetime, "video_num" varchar(255)) [0m
+  [1m[35m (19.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (22.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (13.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121015014003')
+  [1m[36m (15.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121012074851')[0m
+  [1m[35m (18.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121014234811')
+  [1m[36m (15.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121015005906')[0m
+  [1m[35m (15.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121015005833')
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  SELECT 1 FROM "courses" WHERE "courses"."course_num" = 'CS1' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "courses" WHERE "courses"."title" = 'CS1' LIMIT 1[0m
+  [1m[35mSQL (30.6ms)[0m  INSERT INTO "courses" ("course_num", "created_at", "title", "university", "updated_at") VALUES (?, ?, ?, ?, ?)  [["course_num", "CS1"], ["created_at", Mon, 15 Oct 2012 04:04:06 UTC +00:00], ["title", "CS1"], ["university", "CS1"], ["updated_at", Mon, 15 Oct 2012 04:04:06 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "courses" WHERE "courses"."course_num" = 'CS2' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SELECT 1 FROM "courses" WHERE "courses"."title" = 'CS2' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "courses" ("course_num", "created_at", "title", "university", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["course_num", "CS2"], ["created_at", Mon, 15 Oct 2012 04:04:06 UTC +00:00], ["title", "CS2"], ["university", "CS2"], ["updated_at", Mon, 15 Oct 2012 04:04:06 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "courses" WHERE "courses"."course_num" = 'CS3' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT 1 FROM "courses" WHERE "courses"."title" = 'CS3' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("course_num", "created_at", "title", "university", "updated_at") VALUES (?, ?, ?, ?, ?)  [["course_num", "CS3"], ["created_at", Mon, 15 Oct 2012 04:04:06 UTC +00:00], ["title", "CS3"], ["university", "CS3"], ["updated_at", Mon, 15 Oct 2012 04:04:06 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "courses" WHERE "courses"."course_num" = 'CS4' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "courses" WHERE "courses"."title" = 'CS4' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_num", "created_at", "title", "university", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["course_num", "CS4"], ["created_at", Mon, 15 Oct 2012 04:04:06 UTC +00:00], ["title", "CS4"], ["university", "CS4"], ["updated_at", Mon, 15 Oct 2012 04:04:06 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "courses" WHERE "courses"."course_num" = 'CS5' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT 1 FROM "courses" WHERE "courses"."title" = 'CS5' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "courses" ("course_num", "created_at", "title", "university", "updated_at") VALUES (?, ?, ?, ?, ?)  [["course_num", "CS5"], ["created_at", Mon, 15 Oct 2012 04:04:06 UTC +00:00], ["title", "CS5"], ["university", "CS5"], ["updated_at", Mon, 15 Oct 2012 04:04:06 UTC +00:00]]
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 21:04:09 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (10.0ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 21:04:09 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 21:04:09 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 21:04:09 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 21:04:09 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 21:12:16 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.1ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (5.7ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 21:12:17 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 21:12:17 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 21:12:17 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 21:12:17 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCourses (20121012074851)
+Migrating to CreateVideos (20121014234811)
+Migrating to RemoveProfessorFromCourses (20121015005833)
+Migrating to AddUniversityToCourses (20121015005906)
+Migrating to AddVideoNumToVideos (20121015014003)
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("courses")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("videos")[0m
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (34.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (13.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCourses (20121012074851)
+  [1m[35m (0.4ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_num" varchar(255), "title" varchar(255), "professor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121012074851')[0m
+Migrating to CreateVideos (20121014234811)
+  [1m[35m (0.4ms)[0m  CREATE TABLE "videos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "time" varchar(255), "size" varchar(255), "course_num" varchar(255), "video_num" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121014234811')[0m
+Migrating to RemoveProfessorFromCourses (20121015005833)
+  [1m[35m (9.9ms)[0m  CREATE TEMPORARY TABLE "altered_courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_num" varchar(255), "title" varchar(255), "professor" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("courses")[0m
+  [1m[35m (1.8ms)[0m  SELECT * FROM "courses"
+  [1m[36m (0.5ms)[0m  [1mDROP TABLE "courses"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "course_num" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_courses")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_courses"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "altered_courses"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121015005833')
+Migrating to AddUniversityToCourses (20121015005906)
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "courses" ADD "university" varchar(255)[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121015005906')
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("courses")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("videos")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  SELECT 1 FROM "courses" WHERE "courses"."course_num" = 'CS1' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT 1 FROM "courses" WHERE "courses"."title" = 'CS1' LIMIT 1[0m
+  [1m[35mSQL (5.6ms)[0m  INSERT INTO "courses" ("course_num", "created_at", "title", "university", "updated_at") VALUES (?, ?, ?, ?, ?)  [["course_num", "CS1"], ["created_at", Mon, 15 Oct 2012 04:23:46 UTC +00:00], ["title", "CS1"], ["university", "CS1"], ["updated_at", Mon, 15 Oct 2012 04:23:46 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "courses" WHERE "courses"."course_num" = 'CS2' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SELECT 1 FROM "courses" WHERE "courses"."title" = 'CS2' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_num", "created_at", "title", "university", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["course_num", "CS2"], ["created_at", Mon, 15 Oct 2012 04:23:46 UTC +00:00], ["title", "CS2"], ["university", "CS2"], ["updated_at", Mon, 15 Oct 2012 04:23:46 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "courses" WHERE "courses"."course_num" = 'CS3' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT 1 FROM "courses" WHERE "courses"."title" = 'CS3' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_num", "created_at", "title", "university", "updated_at") VALUES (?, ?, ?, ?, ?)  [["course_num", "CS3"], ["created_at", Mon, 15 Oct 2012 04:23:46 UTC +00:00], ["title", "CS3"], ["university", "CS3"], ["updated_at", Mon, 15 Oct 2012 04:23:46 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mSELECT 1 FROM "courses" WHERE "courses"."course_num" = 'CS4' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "courses" WHERE "courses"."title" = 'CS4' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("course_num", "created_at", "title", "university", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["course_num", "CS4"], ["created_at", Mon, 15 Oct 2012 04:23:46 UTC +00:00], ["title", "CS4"], ["university", "CS4"], ["updated_at", Mon, 15 Oct 2012 04:23:46 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  SELECT 1 FROM "courses" WHERE "courses"."course_num" = 'CS5' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT 1 FROM "courses" WHERE "courses"."title" = 'CS5' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "courses" ("course_num", "created_at", "title", "university", "updated_at") VALUES (?, ?, ?, ?, ?)  [["course_num", "CS5"], ["created_at", Mon, 15 Oct 2012 04:23:46 UTC +00:00], ["title", "CS5"], ["university", "CS5"], ["updated_at", Mon, 15 Oct 2012 04:23:46 UTC +00:00]]
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 21:23:50 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (5.7ms)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 21:23:51 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:51 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:51 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:51 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 21:23:52 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (5.6ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 21:23:52 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:52 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:52 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:52 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 21:23:57 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.5ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (13.7ms)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 21:23:57 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:57 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:57 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:57 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 21:23:59 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (6.3ms)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 21:23:59 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:59 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:59 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 21:23:59 -0700
+Served asset /application.js - 304 Not Modified (0ms)
