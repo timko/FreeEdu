@@ -3,4 +3,6 @@ class Course < ActiveRecord::Base
   validates :course_num, :presence => true, :uniqueness => true
   validates :title, :presence => true, :uniqueness => true
   validates :university, :presence => true
+
+  has_many :videos
 end
