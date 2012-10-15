@@ -3645,3 +3645,95 @@ Served asset /application.js - 200 OK (3ms)
 
 Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 21:53:37 -0700
 Served asset /jquery.js - 200 OK (40ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-14 22:21:00 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (8.4ms)
+Completed 200 OK in 119ms (Views: 117.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 22:21:02 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:02 -0700
+Served asset /jquery.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:02 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (30ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:02 -0700
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 22:21:05 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (6.1ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 22:21:05 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:05 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:05 -0700
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:05 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 22:21:07 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (45.7ms)
+Completed 200 OK in 53ms (Views: 51.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 22:21:07 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:07 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:07 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:07 -0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2012-10-14 22:21:09 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (4.8ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-14 22:21:09 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:09 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:09 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-14 22:21:09 -0700
+Served asset /application.js - 304 Not Modified (0ms)
