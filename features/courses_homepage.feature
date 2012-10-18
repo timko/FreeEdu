@@ -7,7 +7,7 @@ I want to take a course with an online platform
 Background: courses have been added to the database
   
   Given the following courses exist:
-  |title                |course number|university    |
+  |title                |course_num   |university    |
   |Software Engineering |CS169        |UC Berkeley   |
   |Getting FB Job       |CS999        |UC Berkeley   |
   |Hackathon Crap       |CS998        |UC Los Angeles|

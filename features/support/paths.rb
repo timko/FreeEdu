@@ -14,8 +14,13 @@ module NavigationHelpers
     case page_name
 
     when /^the FreEdu home\s?page$/
-      '/'
+      courses_path
 
+    when /^the settings page$/
+      settings_path
+    
+    when /^the videos page for "([^"]*)"$/
+      course_videos_path(Course.find_by_title($1))
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
