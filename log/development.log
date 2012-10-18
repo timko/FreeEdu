@@ -3953,3 +3953,328 @@ Served asset /application.js - 304 Not Modified (0ms)
   [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121012074851')
   [1m[36m (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121014234811')[0m
   [1m[35m (3.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121015005833')
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-17 20:14:35 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (17.6ms)
+Compiled application.js  (4ms)  (pid 4873)
+Compiled settings.js  (117ms)  (pid 4873)
+Completed 200 OK in 284ms (Views: 282.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:14:37 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:37 -0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:37 -0700
+Served asset /application.js - 200 OK (11ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:37 -0700
+Served asset /settings.js - 200 OK (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:37 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/courses/1/videos" for 127.0.0.1 at 2012-10-17 20:14:45 -0700
+  Processing by VideosController#index as HTML
+  Parameters: {"course_id"=>"1"}
+Rendered videos/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:14:45 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:45 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:45 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:45 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:45 -0700
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/1/videos" for 127.0.0.1 at 2012-10-17 20:14:47 -0700
+  Processing by VideosController#index as HTML
+  Parameters: {"course_id"=>"1"}
+Rendered videos/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:14:47 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:47 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:47 -0700
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:47 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:47 -0700
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/settings" for 127.0.0.1 at 2012-10-17 20:14:49 -0700
+  Processing by SettingsController#index as HTML
+Rendered settings/index.html.haml within layouts/application (0.7ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:14:49 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:49 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:49 -0700
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:49 -0700
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:49 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/1/videos" for 127.0.0.1 at 2012-10-17 20:14:51 -0700
+  Processing by VideosController#index as HTML
+  Parameters: {"course_id"=>"1"}
+Rendered videos/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:14:51 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:51 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (10ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:51 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:51 -0700
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:51 -0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/courses/2/videos" for 127.0.0.1 at 2012-10-17 20:14:54 -0700
+  Processing by VideosController#index as HTML
+  Parameters: {"course_id"=>"2"}
+Rendered videos/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:14:54 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:54 -0700
+Served asset /jquery.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:54 -0700
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:54 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:14:54 -0700
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/courses/1/videos" for 127.0.0.1 at 2012-10-17 20:15:18 -0700
+  Processing by VideosController#index as HTML
+  Parameters: {"course_id"=>"1"}
+Rendered videos/index.html.haml within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:15:18 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:15:18 -0700
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:15:18 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:15:18 -0700
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:15:18 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-17 20:37:10 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (10.8ms)
+Completed 200 OK in 114ms (Views: 110.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:37:12 -0700
+Served asset /bootstrap.css - 304 Not Modified (39ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:12 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:12 -0700
+Served asset /jquery.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:12 -0700
+Served asset /settings.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:12 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-17 20:37:15 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (5.9ms)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:37:15 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:15 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:15 -0700
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:15 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:15 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-17 20:37:17 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (9.1ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:37:17 -0700
+Served asset /bootstrap.css - 304 Not Modified (46ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:17 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:17 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:17 -0700
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:37:17 -0700
+Served asset /application.js - 304 Not Modified (4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-17 20:38:25 -0700
+  Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.1ms)[0m  SELECT "courses".* FROM "courses" 
+Rendered courses/index.html.haml within layouts/application (6.7ms)
+Completed 200 OK in 14ms (Views: 12.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 20:38:26 -0700
+Served asset /bootstrap.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 20:38:26 -0700
+Served asset /settings.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 20:38:26 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 20:38:26 -0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 20:38:26 -0700
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-10-17 23:17:47 -0700
+  Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses" [0m
+Rendered courses/index.html.haml within layouts/application (9.4ms)
+Completed 200 OK in 99ms (Views: 97.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2012-10-17 23:17:48 -0700
+Served asset /bootstrap.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/settings.js?body=1" for 127.0.0.1 at 2012-10-17 23:17:48 -0700
+Served asset /settings.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-10-17 23:17:48 -0700
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-10-17 23:17:48 -0700
+Served asset /jquery_ujs.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-10-17 23:17:48 -0700
+Served asset /application.js - 304 Not Modified (1ms)
