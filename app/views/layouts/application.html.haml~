@@ -2,12 +2,12 @@
 %html
   %head
     %title FreeEdu
-    = stylesheet_link_tag 'bootstrap', 'application'
+    = stylesheet_link_tag 'bootstrap'
     = javascript_include_tag 'application'
     = csrf_meta_tags
 
   %body
-    %h1.navbar-inner FreeEdu
+    %h1.navbar-inner= link_to FreeEdu
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
