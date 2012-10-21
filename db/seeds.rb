@@ -10,3 +10,18 @@
   fake_course = "CS#{num}"
   Course.create(:course_num => fake_course, :title => fake_course, :university => fake_course)
 end
+
+videos = [{ :name => 'Cast 1',
+            :time => '30:40',
+	    :size => '5MB',
+	    :course_id => 'c1'},
+
+	  { :name => 'Algorithms',
+            :time => '19:15',
+	    :size => '3.7MB',
+	    :course_id => 'c2'}, ]
+
+videos.each do |v|
+  Video.create!(v)
+end
+      

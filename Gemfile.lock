@@ -203,6 +203,7 @@ DEPENDENCIES
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
+  excon
   factory_girl_rails
   gherkin
   haml

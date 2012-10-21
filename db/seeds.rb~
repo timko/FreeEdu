@@ -7,6 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 (1..5).each do |num|
-  fake_course = "course#{num}"
+  fake_course = "CS#{num}"
   Course.create(:course_num => fake_course, :title => fake_course, :university => fake_course)
 end

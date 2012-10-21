@@ -19,7 +19,8 @@ group :development, :test do
   gem 'ZenTest'
   gem 'gherkin'
 end
-#gem 'heroku'
+
+gem 'heroku'
 
 
 group :production do
