@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
 
@@ -14,7 +14,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
-  gem 'simplecov'
+  gem 'simplecov', "=0.4.2"
   gem 'factory_girl_rails'
   gem 'ZenTest'
   gem 'gherkin'
