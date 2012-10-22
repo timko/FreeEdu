@@ -13,7 +13,7 @@ describe VideosController do
     end
 
     it 'selects the index template for rendering' do
-      response.should render_template('videos')
+     response.should render_template('videos')
     end
   
     it 'should make the videos associated with the course available to the template' do 
@@ -22,6 +22,7 @@ describe VideosController do
     it 'should have a RESTful route ' do
       course_videos_path.should == '/courses/1/videos'
     end
+
   end
 
 end
