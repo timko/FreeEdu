@@ -18,6 +18,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'ZenTest'
   gem 'gherkin'
+  gem 'excon'
 end
 
 gem 'heroku'
