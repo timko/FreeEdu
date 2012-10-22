@@ -1,0 +1,14 @@
+%h1 Videos
+
+%table#videos.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Name
+      %th Time
+      %th Size
+  %tbody
+    - @videos.each do |video|
+      %tr
+        %td= link_to "#{video.name}", course_video_path(course.id, video.id) #this is a placeholder path for now
+        %td= video.time
+        %td= video.size

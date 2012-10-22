@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
   #  @courses: should be an array of all course objects
   def index
     @courses = Course.all
-  end
+  end 
+
 
 end

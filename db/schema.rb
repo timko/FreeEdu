@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20121021225908) do
     t.string   "time"
     t.string   "size"
     t.string   "course_num"
+    t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
