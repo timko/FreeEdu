@@ -1,0 +1,2 @@
+class CacheDataController < ApplicationController
+end
