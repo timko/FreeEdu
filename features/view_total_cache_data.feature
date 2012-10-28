@@ -4,7 +4,7 @@ Feature: View total cache data
   I want to view the total cache statistics for the site
 
 Background: Starting from the homepage
-  And I am on the homepage
+  And I am on the FreeEdu homepage
 
 Scenario: View the total cache data
   When I am on the total cache data page

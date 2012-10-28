@@ -13,7 +13,7 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
-    when /^the FreEdu home\s?page$/
+    when /^the FreeEdu home\s?page$/
       courses_path
 
     when /^the settings page$/

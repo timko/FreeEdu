@@ -20,7 +20,7 @@ Background: courses have been added to the database
   |Tips and Tricks      | 3         | "30:40" | 5MB  |
   |GO OUT AND SOCIALIZE | 4         | "30:40" | 5MB  |
 
-  And I am on the FreEdu homepage
+  And I am on the FreeEdu homepage
 
 Scenario: watch a video from a course
   When I am on the videos page for "Software Engineering"

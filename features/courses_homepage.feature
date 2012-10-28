@@ -13,7 +13,7 @@ Background: courses have been added to the database
   |Hackathon Crap       |CS998        |UC Los Angeles|
   |Feel Sorry for Urself|PE101        |Stanford      |
 
-  And I am on the FreEdu homepage
+  And I am on the FreeEdu homepage
 
 Scenario: being able to see the courses on the website
 
