@@ -24,8 +24,6 @@ group :test do
   gem 'cucumber-rails'
 end
 
-gem 'heroku'
-
 
 group :production do
   gem 'pg'
