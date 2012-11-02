@@ -17,4 +17,10 @@ describe CacheDataController do
       response.should redirect_to total_cache_statistics_path #this is going to change later
     end
   end
+  describe 'extracting each field to the page' do
+    it 'should call the model method for finding the field over time'
+    it 'should make field data available to the template'
+    it 'should return the field data in order of date'
+    it 'should return an empty list if there is no data'
+  end
 end
