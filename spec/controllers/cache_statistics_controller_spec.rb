@@ -18,9 +18,25 @@ describe CacheDataController do
     end
   end
   describe 'extracting each field to the page' do
-    it 'should call the model method for finding the field over time'
-    it 'should make field data available to the template'
-    it 'should return the field data in order of date'
-    it 'should return an empty list if there is no data'
+    it 'should call the model method for finding the field over time' do
+      @fake_result = {:field => 'data'}
+      Stats.stub(:find_stats).with(:field).and_return(@fake_result)
+      Stats.should_receive(:find_stats).with(:field).and_return(@fake_result)
+      get :total_stats, :fields => [:field]
+    end
+    it 'should make field data available to the template' do
+      @fake_result = {:field => 'data'}
+      Stats.stub(:find_stats).with(:field).and_return(@fake_result)
+      get :total_stats, :fields => [:field]
+      assigns(:total_stats).should == 'data'
+    end
+    it 'should return the field data in order of date' do
+      #FactoryGirl should create 3 items in the database unordered by date.
+      #Simulate a field using :field if possible and then use get and assigns to check correctness
+    end
+    it 'should return an empty list to the view if there are no valid entries' do
+      #FactoryGirl should create 3 items in the database unordered by date.
+      #Simulate a field using :field if possible and then use get and assigns to check correctness
+    end
   end
 end
