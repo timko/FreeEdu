@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CacheDataController do
+describe CacheStatisticsController do
   describe 'getting to the total cache statistics page' do
     before :each do
       @fake_result = {:data1 => 'data', :data2 => 'data2'}

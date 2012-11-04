@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121029034317) do
+ActiveRecord::Schema.define(:version => 20121104214436) do
+
+  create_table "cache_statistics", :force => true do |t|
+    t.datetime "log_time"
+    t.integer  "num_of_users"
+    t.integer  "bandwidth_demand"
+    t.integer  "num_of_caches"
+    t.integer  "storage_donated"
+    t.integer  "bandwidth_donated"
+    t.integer  "bandwidth_effectively_user"
+    t.integer  "server_load"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "courses", :force => true do |t|
     t.string   "course_num"

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CacheDataModel do
+describe CacheStatistic do
   describe 'extracting data from the database' do
     it 'should return the correct data from the database'
     it 'should return the data in order of date'
