@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+
   def index
     @users = User.all
 
@@ -35,7 +36,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-    
   end
 
   # POST /users
@@ -81,4 +81,5 @@ class UsersController < ApplicationController
       format.json { head :ok }
     end
   end
+
 end

@@ -6,8 +6,12 @@ describe CoursesController do
 
     before :each do
       @fake_results = [mock('course1'), mock('course2'), mock('course3')]
+      @fake_user = mock('User')
+      @fake_user.stub(:name).and_return('Ham')
+      @fake_user.stub(:password).and_return('yyy')
       Course.stub(:all).and_return @fake_results
       Course.should_receive :all
+      User.stub(:find).and_return @fake_user
       get :index
     end
     it 'should select the Courses Index template for rendering' do

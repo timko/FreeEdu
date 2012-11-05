@@ -3,10 +3,10 @@
 = form_tag user_path(@user), :method => :get do
 
   = label :user, :disk_space, 'Disk Space'
-  = text_field :disk_space, 'disk_space'
+  = text_field :user, 'disk_space'
 
   = label :user, :bandwidth, 'Bandwidth'
-  = text_field :bandwidth, 'bandwidth'
+  = text_field :user, 'bandwidth'
 
   %br
   = submit_tag 'Save Settings'

@@ -1,12 +1,12 @@
 %h1 Settings
 
-= form_tag user_path(@user), :method => :get do
+= form_tag user_path(@user), :method => :put do
 
-  = label :users, :disk_space, 'Disk Space'
-  = text_field :disk_space, 'disk_space'
+  = label :user, :disk_space, 'Disk Space'
+  = text_field :user, 'disk_space'
 
-  = label :users, :bandwidth, 'Bandwidth'
-  = text_field :bandwidth, 'bandwidth'
+  = label :user, :bandwidth, 'Bandwidth'
+  = text_field :user, 'bandwidth'
 
   %br
   = submit_tag 'Save Settings'

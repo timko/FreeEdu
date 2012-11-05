@@ -21,7 +21,7 @@ describe UsersController do
       assigns(:user).bandwidth.should == @fake_result.bandwidth
     end
     it 'should direct to homepage/settings' do
-      settings_path.should == '/settings/1'
+      settings_path.should == '/settings'
     end
   end
 end
