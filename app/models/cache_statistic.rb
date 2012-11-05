@@ -11,9 +11,9 @@ class CacheStatistic < ActiveRecord::Base
   end
 
   def self.create_from_file(stat_file, sample_rate = 10)
-    log_lines = IO.readlines(stat_file)
-    log_lines.step(sample_rate) do |log|
-      CacheStatistic.create(CacheStatistic.parse(log))
+    log_lines = IO.readlines(File.open(stat_file))
+    (0...log_lines.length).step(sample_rate) do |log_num|
+      CacheStatistic.create(CacheStatistic.parse(log_lines[log_num]))
     end
   end
   
@@ -28,5 +28,6 @@ class CacheStatistic < ActiveRecord::Base
     create_hash[:bandwidth_donated] = hash_values[5]
     create_hash[:bandwidth_effectively_used] = hash_values[6]
     create_hash[:server_load] = hash_values[7]
+    return create_hash
   end
 end
