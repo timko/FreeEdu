@@ -26,11 +26,6 @@ Scenario: being able to see the courses on the website
   And I should see "Hackathon Crap"
   And I should see "Feel Sorry for Urself"
 
-Scenario: clicking cache settings
-
-  When I press "Cache Settings"
-  Then I should be on the settings page
-
 Scenario: clicking a course title
   
   When I follow "Software Engineering"
