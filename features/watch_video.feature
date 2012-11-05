@@ -20,6 +20,10 @@ Background: courses have been added to the database
   |Tips and Tricks      | 3         | "30:40" | 5MB  |
   |GO OUT AND SOCIALIZE | 4         | "30:40" | 5MB  |
 
+  Given the following users exist:
+  |name                 |password |
+  |x                    |x        |
+
   And I am on the FreeEdu homepage
 
 Scenario: watch a video from a course

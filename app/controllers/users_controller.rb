@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
-
+=begin
   def index
     @users = User.all
 
@@ -10,9 +10,10 @@ class UsersController < ApplicationController
       format.json { render json: @users }
     end
   end
-
+=end
   # GET /users/1
   # GET /users/1.json
+=begin
   def show
     @user = User.find(params[:id])
 
@@ -21,9 +22,10 @@ class UsersController < ApplicationController
       format.json { render json: @user }
     end
   end
-
+=end
   # GET /users/new
   # GET /users/new.json
+=begin
   def new
     @user = User.new
 
@@ -32,7 +34,7 @@ class UsersController < ApplicationController
       format.json { render json: @user }
     end
   end
-
+=end
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
@@ -40,6 +42,7 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
+=begin
   def create
     @user = User.new(params[:user])
 
@@ -53,9 +56,10 @@ class UsersController < ApplicationController
       end
     end
   end
-
+=end
   # PUT /users/1
   # PUT /users/1.json
+=begin
   def update
     @user = User.find(params[:id])
 
@@ -69,9 +73,10 @@ class UsersController < ApplicationController
       end
     end
   end
-
+=end
   # DELETE /users/1
   # DELETE /users/1.json
+=begin
   def destroy
     @user = User.find(params[:id])
     @user.destroy
@@ -81,5 +86,5 @@ class UsersController < ApplicationController
       format.json { head :ok }
     end
   end
-
+=end
 end

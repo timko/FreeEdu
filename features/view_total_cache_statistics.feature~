@@ -4,10 +4,6 @@ Feature: View total cache statistics
   I want to view the total cache statistics for the site
 
 Background: Starting from the homepage
-  Given the following users exist:
-  |name                 |password |
-  |x                    |x        |
-
   And I am on the FreeEdu homepage
 
 Scenario: Getting to the total cache statistics page
