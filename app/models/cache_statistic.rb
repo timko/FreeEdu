@@ -12,7 +12,16 @@ class CacheStatistic < ActiveRecord::Base
   end
   
   def self.extract_sorted_stats(stat_field_list)
-    CacheStatistic.order(:log_time).select(stat_field_list.join(", "))
+    to_return = []
+    stats = CacheStatistic.order(:log_time).select(stat_field_list.join(", "))
+    stats.each do |stat|
+      stat_hash = {}
+      stat_field_list.each do |field|
+        stat_hash[field] = stat.send(field)
+      end
+      to_return << stat_hash
+    end
+    return to_return
   end
 
   def self.create_from_file(stat_file, sample_rate = 10)

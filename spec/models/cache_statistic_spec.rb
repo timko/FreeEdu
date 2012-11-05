@@ -133,18 +133,16 @@ describe CacheStatistic do
     end
 
     it 'should return a list of log times and numbers of users from the database' do
-
-	CacheStatistic.all.each do |stat|
-	  assert @times_and_users[:log_time].include?(stat.log_time) and @times_and_users[:num_of_users].include? stat.num_of_users
+	(0...CacheStatistic.all.length).each do |num|
+	  assert @times_and_users[num].include?(:log_time) and @times_and_users[num].include?(:num_of_users)
 	end
 
     end
     it 'should return the data in order of date' do
-        log_times = CacheStatistic.extract_sorted_stat(:log_time).sort
-
-        (0..4).each do |num|
-          cur_record = CacheStatistic.find_by_log_time(log_times[num])
-          assert cur_record.log_time == @times_and_users[:log_time][num] and cur_record.num_of_users == @times_and_users[:num_of_users][num]
+        (0...CacheStatistic.all.length-1).each do |num|
+          cur_record = @times_and_users[num]
+          next_record = @times_and_users[num+1]
+          assert cur_record[:log_time] < next_record[:log_time];
         end
 
     end 
