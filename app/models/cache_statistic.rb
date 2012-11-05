@@ -3,7 +3,12 @@ class CacheStatistic < ActiveRecord::Base
   attr_accessible :storage_donated, :bandwidth_donated, :bandwidth_effectively_used, :server_load
   validates :log_time, :uniqueness => true
   def self.extract_sorted_stat(stat_field)
-    CacheStatistic.order(:log_time).select(stat_field)
+    stats = CacheStatistic.order(:log_time).select(stat_field)
+    to_return = []
+    stats.each do |stat|
+      to_return << stat.send(stat_field)
+    end
+    return to_return
   end
   
   def self.extract_sorted_stats(stat_field_list)
@@ -20,14 +25,14 @@ class CacheStatistic < ActiveRecord::Base
   def self.parse(log_string)
     create_hash = {}
     hash_values = log_string.split(" ")
-    create_hash[:log_time] = hash_values[0]
-    create_hash[:num_of_users] = hash_values[1]
-    create_hash[:bandwidth_demand] = hash_values[2]
-    create_hash[:num_of_caches] = hash_values[3]
-    create_hash[:storage_donated] = hash_values[4]
-    create_hash[:bandwidth_donated] = hash_values[5]
-    create_hash[:bandwidth_effectively_used] = hash_values[6]
-    create_hash[:server_load] = hash_values[7]
+    create_hash[:log_time] = hash_values[0] + " " + hash_values[1]
+    create_hash[:num_of_users] = hash_values[2].to_i
+    create_hash[:bandwidth_demand] = hash_values[3].to_f
+    create_hash[:num_of_caches] = hash_values[4].to_i
+    create_hash[:storage_donated] = hash_values[5].to_f
+    create_hash[:bandwidth_donated] = hash_values[6].to_f
+    create_hash[:bandwidth_effectively_used] = hash_values[7].to_f
+    create_hash[:server_load] = hash_values[8].to_f
     return create_hash
   end
 end
