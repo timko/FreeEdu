@@ -4,10 +4,6 @@ describe CacheStatistic do
 
   describe 'extracting a list of dates from the database' do
 
-    it 'should return an empty list if there is nothing in the database' do
-      CacheStatistic.extract_sorted_stat(:log_time).should == []
-    end
-
     before :each do
       (1..5).each do |num|
         FactoryGirl.create(:cache_statistic, :log_time => "2012-11-0#{num} 13:44:36")
@@ -31,9 +27,6 @@ describe CacheStatistic do
   end
 
   describe 'extracting total number of users from the database' do
-    it 'should return an empty list if there is nothing in the database' do
-      CacheStatistic.extract_sorted_stat(:num_of_users).should == []
-    end
 
     before :each do
       (1..5).each do |num|
@@ -59,9 +52,6 @@ describe CacheStatistic do
   end
 
   describe 'extracting server load from the database' do
-    it 'should return an empty list if there is nothing in the database' do
-      CacheStatistic.extract_sorted_stat(:server_load).should == []
-    end
 
     before :each do
       (1..5).each do |num|
@@ -71,7 +61,7 @@ describe CacheStatistic do
       @server_loads = CacheStatistic.extract_sorted_stat(:server_load)
     end
 
-    it 'should return a list of number of users from the database' do
+    it 'should return a list of server loads from the database' do
 
 	CacheStatistic.all.each do |stat|
 	  assert @server_loads.include? stat.server_load
@@ -89,40 +79,34 @@ describe CacheStatistic do
   end
 
   describe 'extracting server load over number of users from the database' do
-    it 'should return an empty list if there is nothing in the database' do
-      CacheStatistic.extract_sorted_avg_load.should == []
-    end
 
     before :each do
       (1..5).each do |num|
         FactoryGirl.create(:cache_statistic, :log_time => "2012-11-0#{num} 13:44:36", :server_load => num, :num_of_users => 21+num)
       end
 
-      avg_loads = CacheStatistic.extract_sorted_avg_load
+      @avg_loads = CacheStatistic.extract_sorted_avg_load
     end
 
     it 'should return a list of number of users from the database' do
 
 	CacheStatistic.all.each do |stat|
-	  assert avg_loads.include? stat.server_load/users
+	  assert @avg_loads.include? stat.server_load/stat.num_of_users
 	end
 
     end
     it 'should return the data in order of date' do
         log_times = CacheStatistic.extract_sorted_stat(:log_time).sort
 
-        (0..4).each do |num|
+        (0...CacheStatistic.all.length).each do |num|
           cur_record = CacheStatistic.find_by_log_time(log_times[num])
-          assert cur_record.serverload/cur_record.num_of_users == @server_loads[num]
+          assert cur_record.server_load/cur_record.num_of_users == @avg_loads[num]
         end
 
     end
   end
 
   describe 'extracting log_time and num_of_users from the database' do
-    it 'should return an empty list if there is nothing in the database' do
-      CacheStatistic.extract_sorted_stats([:log_time, :num_of_users]).should == []
-    end
 
     before :each do
       (1..5).each do |num|

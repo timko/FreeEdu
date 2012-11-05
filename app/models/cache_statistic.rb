@@ -23,6 +23,16 @@ class CacheStatistic < ActiveRecord::Base
     end
     return to_return
   end
+  
+  def self.extract_sorted_avg_load()
+    to_return = []
+    num_users = CacheStatistic.extract_sorted_stat(:num_of_users)
+    server_load = CacheStatistic.extract_sorted_stat(:server_load)
+    (0...server_load.length).each do |num|
+      to_return << server_load[num]/num_users[num]
+    end
+    return to_return
+  end
 
   def self.create_from_file(stat_file, sample_rate = 10)
     log_lines = IO.readlines(File.open(stat_file))
