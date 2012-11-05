@@ -1,6 +1,6 @@
 =TO AVOID HEADACHES:
 
-run "git rm --cached log/*" and "git rm --cached tmp/*"
+run "git rm --cached log/*", "git rm --cached tmp/*", "git rm --cached *.swp", "git rm --cached *.log", "git rm --cached coverage/*", and "git rm --cached script/*"
 
 =HEROKU PROBLEMS?
 
