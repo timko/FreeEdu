@@ -1,2 +1,11 @@
-class CacheDataController < ApplicationController
+class CacheStatisticsController < ApplicationController
+
+  def total_stats
+
+    @stats = CacheStatistics.all
+    render 'statistics/total'
+
+  end
+
+
 end

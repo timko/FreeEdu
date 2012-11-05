@@ -17,7 +17,7 @@ FreEdu::Application.routes.draw do
     resources :videos
   end
 
-  
+  match 'statistics/total' => 'cache_statistics#total_stats', :as => 'total_stats', :via => :get
 
 # Sample of named route:
 #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
