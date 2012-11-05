@@ -7,7 +7,7 @@ FreEdu::Application.routes.draw do
   root :to => 'courses#index'
   #root :to => 'videos#video_list'
   #root :to => 'videos#watch'
-  match '/settings.1' => 'users#edit', :as => 'settings', :via =>:put
+  match '/settings/:id' => 'users#edit', :as => 'settings', :via =>:put
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -17,7 +17,7 @@ FreEdu::Application.routes.draw do
     resources :videos
   end
 
-  
+  match 'statistics/total' => 'cache_statistics#total_stats', :as => 'total_stats', :via => :get
 
 # Sample of named route:
 #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
