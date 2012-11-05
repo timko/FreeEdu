@@ -1,0 +1,15 @@
+%h1 Fields
+
+%table#field_stats.table.table-striped.table-bordered
+  %thead
+    %tr
+    - @stats[0].keys.each do |field|
+      %th= field
+
+  %tbody
+    - @stats.each do |stat|
+      %tr
+        %td= stat.log_time
+        %td= stat.num_of_users
+        %td= stat.num_of_caches
+        %td= stat.server_load
