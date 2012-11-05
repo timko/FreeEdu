@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121104214436) do
+ActiveRecord::Schema.define(:version => 20121105002118) do
 
   create_table "cache_statistics", :force => true do |t|
     t.datetime "log_time"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20121104214436) do
     t.integer  "num_of_caches"
     t.integer  "storage_donated"
     t.integer  "bandwidth_donated"
-    t.integer  "bandwidth_effectively_user"
+    t.integer  "bandwidth_effectively_used"
     t.integer  "server_load"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(:version => 20121104214436) do
   end
 
   create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "password"
+    t.integer  "disk_space"
+    t.integer  "bandwidth"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,17 +1,17 @@
 %h1 Courses
 
 %div#settings{:align => "right"}
-  =button_to 'Cache Settings', courses_path, :method => :get #this is a placeholder path for now
+  =button_to 'Cache Settings', settings_path(:id = @user.id), :method => :put #this is a placeholder path for now
 
 %table#courses.table.table-striped.table-bordered
   %thead
     %tr
       %th Title
       %th Course Number
-      %th Univesity
+      %th University
   %tbody
     - @courses.each do |course|
       %tr
-        %td= link_to "#{course.title}", courses_path #this is a placeholder path for now
+        %td= link_to "#{course.title}", course_videos_path(course.id) #this is a placeholder path for now
         %td= course.course_num
         %td= course.university

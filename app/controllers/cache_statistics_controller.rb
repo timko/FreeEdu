@@ -1,2 +1,2 @@
-class CacheDataController < ApplicationController
+class CacheStatisticsController < ApplicationController
 end

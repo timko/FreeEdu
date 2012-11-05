@@ -16,4 +16,4 @@
   course.save!
 end
 
-
+User.create!(:name => 'hamed', :password => 'x', :settings => {:disk_space=> 512, :bandwidth=>160})
