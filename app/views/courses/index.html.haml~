@@ -1,7 +1,8 @@
 %h1 Courses
 
 %div#settings{:align => "right"}
-  =button_to 'Cache Settings', settings_path(session[:user_id]), :method => :put #this is a placeholder path for now
+  =link_to 'Total Cache Settings', total_stats_path
+  =button_to 'Cache Settings', settings_path(@user.id), :method => :put #this is a placeholder path for now
 
 %table#courses.table.table-striped.table-bordered
   %thead

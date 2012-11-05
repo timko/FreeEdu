@@ -8,6 +8,7 @@ Background: Starting from the homepage
   |name                 |password |
   |x                    |x        |
 
+  Given the database is updated
   And I am on the FreeEdu homepage
 
 Scenario: Getting to the total cache statistics page
@@ -17,15 +18,10 @@ Scenario: Getting to the total cache statistics page
 Scenario: View the total cache statistics
   When I am on the total cache statistics page
   Then I should see "Total Statistics"
-  Then I should see "total_cache_statistics_visualizer"
-  
-Scenario: Directing to the settings page
-  When I am on the total cache statistics page
-  And I follow "Cache Settings"
-  Then I should be on the settings page
+  And I should see "Log Time" 
   
 Scenario: Directing to the homepage
   When I am on the total cache statistics page
-  And I click the FreeEdu image
+  And I follow "FreeEdu"
   Then I should be on the FreeEdu homepage
   

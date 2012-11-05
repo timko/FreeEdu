@@ -14,10 +14,13 @@ module NavigationHelpers
     case page_name
 
     when /^the FreeEdu home\s?page$/
-      courses_path
+      '/'
 
     when /^the settings page$/
       settings_path
+
+    when /^the total cache statistics page$/
+      total_stats_path
     
     when /^the videos page for "([^"]*)"$/
       course_videos_path(Course.find_by_title($1))
