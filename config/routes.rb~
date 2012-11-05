@@ -18,6 +18,7 @@ FreEdu::Application.routes.draw do
   end
 
   match 'statistics/total' => 'cache_statistics#total_stats', :as => 'total_stats', :via => :get
+  match 'statistics/:fields' => 'cache_statistics#field_stats', :as => 'field_stats', :via => :get
 
 # Sample of named route:
 #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

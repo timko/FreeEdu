@@ -7,5 +7,15 @@ class CacheStatisticsController < ApplicationController
 
   end
 
+  def field_stats
+    @stats = CacheStatistic.extract_sorted_stats(params[:fields])
+
+    if @stats == []
+      flash[:notice] = "You didn't specify any fields"
+      redirect_to '/' and return
+    end
+
+    render 'statistics/fields'
+  end
 
 end
