@@ -5,15 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+begin
 (1..5).each do |num|
-  fake_course = "CS#{num}"
-  course = Course.new(:course_num => fake_course, :title => fake_course, :university => fake_course)
-  video = course.videos.build({ :name => 'Cast 1',
-				:time => '30:40',
-                                :course_num => fake_course,
-			  	:size => '5MB'})
-  course.save!
+    fake_course = "CS#{num}"
+    course = Course.new(:course_num => fake_course, :title => fake_course, :university => fake_course)
+    video = course.videos.build({ :name => 'Cast 1',
+      :time => '30:40',
+      :course_num => fake_course,
+      :size => '5MB'})
+    course.save!
+  end
 end
-
-User.create!(:name => 'hamed', :password => 'x', :settings => {:disk_space=> 512, :bandwidth=>160})
+User.create!(:name => 'admin', :password => 'admin', :settings => {:disk_space=> 512, :bandwidth=>160})
