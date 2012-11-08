@@ -15,5 +15,6 @@ begin
       :size => '5MB'})
     course.save!
   end
+rescue
 end
 User.create!(:name => 'admin', :password => 'admin', :settings => {:disk_space=> 512, :bandwidth=>160})
