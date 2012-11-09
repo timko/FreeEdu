@@ -2,6 +2,7 @@ class CacheStatisticsController < ApplicationController
 
   def total_stats
 
+    
     @stats = CacheStatistic.all
     render 'statistics/total'
 
@@ -13,6 +14,7 @@ class CacheStatisticsController < ApplicationController
     if @stats == []
       flash[:notice] = "You didn't specify any fields"
       redirect_to '/' and return
+    end
 
     render 'statistics/fields'
   end

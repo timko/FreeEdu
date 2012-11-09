@@ -2,6 +2,7 @@ class CacheStatisticsController < ApplicationController
 
   def total_stats
 
+    CacheStatistic.create_from_file
     @stats = CacheStatistic.all
     render 'statistics/total'
 

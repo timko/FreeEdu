@@ -6,7 +6,7 @@ import random
 
 def main():
     while True:
-        f = open('server_traffic.log', 'a')
+        f = open('app/assets/server_traffic.log', 'a')
         s1 = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") # Time
         n_u = random.randint(500, 1000)
         n_c = random.randint(250, 500)

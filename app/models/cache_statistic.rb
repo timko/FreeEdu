@@ -34,7 +34,7 @@ class CacheStatistic < ActiveRecord::Base
     return to_return
   end
 
-  def self.create_from_file(stat_file, sample_rate = 10)
+  def self.create_from_file(stat_file = 'script/server_traffic.log', sample_rate = 1)
     log_lines = IO.readlines(File.open(stat_file))
     (0...log_lines.length).step(sample_rate) do |log_num|
       CacheStatistic.create(CacheStatistic.parse(log_lines[log_num]))
