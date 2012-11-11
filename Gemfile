@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
-source "http://gems.rubyforge.org"
-source 'http://rubydebug19.s3.amazonaws.com'
+source 'http://gems.github.com/'
 
 gem 'rails', '3.1.0'
 
@@ -41,6 +40,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'googlecharts'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

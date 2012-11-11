@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
-  remote: http://gems.rubyforge.org/
-  remote: http://rubydebug19.s3.amazonaws.com/
+  remote: http://gems.github.com/
   specs:
     ZenTest (4.8.2)
     actionmailer (3.1.0)
@@ -79,6 +78,7 @@ GEM
     ffi (1.1.5)
     gherkin (2.11.5)
       json (>= 1.4.6)
+    googlecharts (1.6.8)
     haml (3.1.7)
     hike (1.2.1)
     i18n (0.6.1)
@@ -193,6 +193,7 @@ DEPENDENCIES
   excon
   factory_girl_rails
   gherkin
+  googlecharts
   haml
   jquery-rails
   launchy
