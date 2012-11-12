@@ -1,3 +1,0 @@
-%h2 Watch #{@video.name}
-
-=image_tag "video_player.png", :id => "video_player"
