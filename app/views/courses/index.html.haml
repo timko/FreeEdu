@@ -1,3 +1,5 @@
+= image_tag(@graph)
+
 %h1 Courses
 
 %div#settings{:align => "right"}
@@ -9,10 +11,8 @@
     %tr
       %th Title
       %th Course Number
-      %th University
   %tbody
     - @courses.each do |course|
       %tr
         %td= link_to "#{course.title}", course_videos_path(course.id) #this is a placeholder path for now
         %td= course.course_num
-        %td= course.university

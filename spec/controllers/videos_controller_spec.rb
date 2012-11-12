@@ -25,4 +25,16 @@ describe VideosController do
 
   end
 
+  describe 'watching a video from a list of videos' do
+
+  before :each do
+  end
+
+  
+  it 'should select the show template for rendering' do
+    response.should render_template('show')
+  end
+
+  end
+
 end

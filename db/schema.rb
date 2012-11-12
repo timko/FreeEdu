@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105002118) do
+ActiveRecord::Schema.define(:version => 20121112011300) do
 
   create_table "cache_statistics", :force => true do |t|
     t.datetime "log_time"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(:version => 20121105002118) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "university"
   end
 
   create_table "users", :force => true do |t|
@@ -51,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20121105002118) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "source"
   end
 
 end

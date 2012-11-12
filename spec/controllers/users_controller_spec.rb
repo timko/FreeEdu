@@ -24,4 +24,23 @@ describe UsersController do
       settings_path.should == '/settings/1'
     end
   end
+
+  describe 'adding and deleting a user'do
+    before :each do
+      @fake_user = FactoryGirl.build(:user, :name => 'admin', :password => 'admin', :id => 1)
+    end
+
+    it 'should add a user to the database' do
+      before = User.count
+      post :create, :user => @fake_user
+      assert before+1 == User.count
+    end
+    
+    it 'should delete a user to the database' do
+      before = User.count
+      post :destroy, :id => 1
+      assert before-1 == User.count
+    end
+  end
+
 end
