@@ -9,7 +9,7 @@ Background: Starting from the homepage
   |x                    |x        |
 
   Given the database is updated
-  And I am on the FreeEdu homepage
+  And I am on the homepage
 
 Scenario: Getting to the total cache statistics page
   When I follow "Total Cache Statistics"
@@ -23,5 +23,5 @@ Scenario: View the total cache statistics
 Scenario: Directing to the homepage
   When I am on the total cache statistics page
   And I follow "FreeEdu"
-  Then I should be on the FreeEdu homepage
+  Then I should be on the homepage
   

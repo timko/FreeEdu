@@ -27,13 +27,23 @@ describe VideosController do
 
   describe 'watching a video from a list of videos' do
 
-  before :each do
-  end
+    before :each do
+      course = FactoryGirl.create(:course, :title => 'SaaS', :course_num => 'CS169', :id => 1)
+      @video = FactoryGirl.create(:video, :name => 'BDD', :course_num => 'CS169', :id => 1, :course_id => 1)
+      get :show, :course_id => 1,:id => 1
+    end
 
-  
-  it 'should select the show template for rendering' do
-    response.should render_template('show')
-  end
+    it 'should select the show template for rendering' do
+      response.should render_template('show')
+    end
+
+    it 'should make the selected video available to the template' do
+      assigns(:video).should == @video
+    end
+
+    it 'should have a RESTful route' do
+      course_video_path.should == '/courses/1/videos/1'
+    end
 
   end
 
