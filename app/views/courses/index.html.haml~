@@ -1,7 +1,9 @@
+= image_tag(@graph)
+
 %h1 Courses
 
 %div#settings{:align => "right"}
-  =link_to 'Total Cache Settings', total_stats_path
+  =link_to 'Total Cache Statistics', total_stats_path
   =button_to 'Cache Settings', settings_path(@user.id), :method => :put #this is a placeholder path for now
 
 %table#courses.table.table-striped.table-bordered
@@ -15,4 +17,3 @@
       %tr
         %td= link_to "#{course.title}", course_videos_path(course.id) #this is a placeholder path for now
         %td= course.course_num
-        %td= course.university

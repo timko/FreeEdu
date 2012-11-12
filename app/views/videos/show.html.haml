@@ -1,4 +1,4 @@
 %h2 Watch #{@video.name}
 
-%iframe{:allowfullscreen => "", :frameborder => "0", :height => "360", :src => "https://www.youtube.com/embed/kgicuytCkoY?feature=player_embedded", :width => "640"}
+%iframe{:allowfullscreen => "", :frameborder => "0", :height => "360", :src => @video.source, :width => "640"}
 / =image_tag "video_player.png", :alt => "#{@video.name}_video_player"

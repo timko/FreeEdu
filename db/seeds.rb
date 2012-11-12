@@ -9,10 +9,11 @@ begin
 (1..5).each do |num|
     fake_course = "CS#{num}"
     course = Course.new(:course_num => fake_course, :title => fake_course, :university => fake_course)
-    video = course.videos.build({ :name => 'Cast 1',
+    video = course.videos.build(:name => 'Cast 1',
       :time => '30:40',
       :course_num => fake_course,
-      :size => '5MB'})
+      :size => '5MB',
+      :source => "https://www.youtube.com/embed/kgicuytCkoY?feature=player_embedded")
     course.save!
   end
 rescue
