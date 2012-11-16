@@ -7,17 +7,17 @@ I want to take a course with an online platform
 Background: courses have been added to the database
   
   Given the following courses exist:
-  |title                |course_num   |university    |
-  |Software Engineering |CS169        |UC Berkeley   |
-  |Getting FB Job       |CS999        |UC Berkeley   |
-  |Hackathon Crap       |CS998        |UC Los Angeles|
-  |Feel Sorry for Urself|PE101        |Stanford      |
+  |title                |course_num   |
+  |Software Engineering |CS169        |
+  |Getting FB Job       |CS999        |
+  |Hackathon Crap       |CS998        |
+  |Feel Sorry for Urself|PE101        |
 
   Given the following users exist:
   |name                 |password |
   |x                    |x        |
 
-  And I am on the FreeEdu homepage
+  And I am on the homepage
 
 Scenario: being able to see the courses on the website
 

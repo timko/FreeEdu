@@ -6,25 +6,25 @@ Feature: watch a video from a course
 Background: courses have been added to the database
   
   Given the following courses exist:
-  |title                |course_num   |university    |
-  |Software Engineering |CS169        |UC Berkeley   |
-  |Getting FB Job       |CS999        |UC Berkeley   |
-  |Hackathon Crap       |CS998        |UC Los Angeles|
-  |Feel Sorry for Urself|PE101        |Stanford      |
+  |title                |course_num   |
+  |Software Engineering |CS169        |
+  |Getting FB Job       |CS999        |
+  |Hackathon Crap       |CS998        |
+  |Feel Sorry for Urself|PE101        |
 
   Given the following videos exist:
-  |name                 | course_id | time    | size |
-  |TDD                  | 1         | "30:40" | 5MB  |
-  |BDD                  | 1         | "30:40" | 5MB  |
-  |Interviewing         | 2         | "30:40" | 5MB  |
-  |Tips and Tricks      | 3         | "30:40" | 5MB  |
-  |GO OUT AND SOCIALIZE | 4         | "30:40" | 5MB  |
+  |name                 | course_id | time    | size | source     |
+  |TDD                  | 1         | "30:40" | 5MB  | "blah.com" |
+  |BDD                  | 1         | "30:40" | 5MB  | "blah.com" |
+  |Interviewing         | 2         | "30:40" | 5MB  | "blah.com" |
+  |Tips and Tricks      | 3         | "30:40" | 5MB  | "blah.com" |
+  |GO OUT AND SOCIALIZE | 4         | "30:40" | 5MB  | "blah.com" |
 
   Given the following users exist:
   |name                 |password |
   |x                    |x        |
 
-  And I am on the FreeEdu homepage
+  And I am on the homepage
 
 Scenario: watch a video from a course
   When I am on the videos page for "Software Engineering"
