@@ -45,7 +45,8 @@ class CacheStatistic < ActiveRecord::Base
     end
     return Gchart.line(:data =>data_list,
                        :size => '800x300',
-                       :legend => self.all_stats,
+                       :legend => ['# of Users', 'Bandwidth Demand', '# of Caches', 'Storage Donated', 'Bandwidth Donated',
+                                   'Bandwidth Effectively Used', 'Server Load'],
                        :line_colors => "0000FF,00FF00,00FFFF,FF0000,FF00FF,FFFF00,000000",
                        :axis_with_labels => 'y',
                        :max_value => 2000,
