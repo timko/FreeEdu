@@ -4,7 +4,8 @@ class CoursesController < ApplicationController
   #  @courses: should be an array of all course objects
   def index
     @courses = Course.all
-    @graph = Gchart.line(:data => [[0, 40, 10, 70, 20]])
+    @graph = CacheStatistic.get_whole_graph
+
     @user = User.find(1) #TEMPORARY
   end 
 

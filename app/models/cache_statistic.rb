@@ -23,6 +23,34 @@ class CacheStatistic < ActiveRecord::Base
     end
     return to_return
   end
+
+  def self.all_stats
+    return ['num_of_users', 'bandwidth_demand', 'num_of_caches', 'storage_donated', 'bandwidth_donated',
+            'bandwidth_effectively_used', 'server_load']
+  end
+
+  def self.extract_all_stats
+    return self.extract_sorted_stats(self.all_stats)
+  end
+
+  def self.get_whole_graph
+    raw_stats = self.extract_all_stats
+    data_list = []
+    self.all_stats.each do |stat|
+      to_add = []
+      raw_stats.each do |collection|
+        to_add << collection[stat]
+      end
+      data_list << to_add
+    end
+    return Gchart.line(:data =>data_list,
+                       :size => '800x300',
+                       :legend => self.all_stats,
+                       :line_colors => "0000FF,00FF00,00FFFF,FF0000,FF00FF,FFFF00,000000",
+                       :axis_with_labels => 'y',
+                       :max_value => 2000,
+                       :min_value => 0)
+  end
   
   def self.extract_sorted_avg_load()
     to_return = []
