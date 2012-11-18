@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(:version => 20121118020207) do
+=======
 ActiveRecord::Schema.define(:version => 20121118013237) do
+>>>>>>> 65fbc20132ebeafdcf7b34f654c191344cc41e54
 
   create_table "cache_statistics", :force => true do |t|
     t.datetime "log_time"
@@ -36,11 +40,11 @@ ActiveRecord::Schema.define(:version => 20121118013237) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "password"
     t.integer  "disk_space"
     t.integer  "bandwidth"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
   create_table "videos", :force => true do |t|

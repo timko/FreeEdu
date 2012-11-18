@@ -8,6 +8,9 @@ FreEdu::Application.routes.draw do
   #root :to => 'videos#video_list'
   #root :to => 'videos#watch'
   match '/settings/:id' => 'users#edit', :as => 'settings', :via =>:put
+  match '/login' => 'sessions#create', :as => 'login'
+  match '/logout' => 'sessions#destroy', :as => 'logout'
+  match '/auth' => 'sessions#index', :as => 'auth'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
