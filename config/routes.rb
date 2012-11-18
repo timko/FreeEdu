@@ -7,7 +7,7 @@ FreEdu::Application.routes.draw do
   root :to => 'courses#index'
   #root :to => 'videos#video_list'
   #root :to => 'videos#watch'
-  match '/settings/:id' => 'users#edit', :as => 'settings', :via =>:put
+  match '/settings/' => 'sessions#index', :as => 'settings', :via =>:put
   match '/login' => 'sessions#create', :as => 'login'
   match '/logout' => 'sessions#destroy', :as => 'logout'
   match '/auth' => 'sessions#index', :as => 'auth'

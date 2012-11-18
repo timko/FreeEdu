@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   
   def index
     if session[:user_id]
-      redirect_to tasks_path and return
+      redirect_to edit_user_path(session[:user_id])
     end
   end
 

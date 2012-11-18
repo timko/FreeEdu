@@ -9,8 +9,6 @@ class CoursesController < ApplicationController
     @real_stat_names = CacheStatistic.stat_names
     @courses = Course.all
     @graph = CacheStatistic.get_whole_graph
-
-    @user = User.find(1) #TEMPORARY
   end 
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121118020207) do
+ActiveRecord::Schema.define(:version => 20121118022354) do
 
   create_table "cache_statistics", :force => true do |t|
     t.datetime "log_time"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(:version => 20121118020207) do
   create_table "videos", :force => true do |t|
     t.string   "time"
     t.string   "size"
-    t.string   "course_num"
     t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"

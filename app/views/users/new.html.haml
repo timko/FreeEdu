@@ -1,0 +1,22 @@
+%h2 Please sign up!
+
+-if @user.errors.any?
+  #error_explanation
+    %h4= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li= msg
+
+= form_for @user do |f|
+  %p
+    = f.label :name
+    = f.text_field :name
+  %br
+  %p
+    = f.label :password
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  %p.button
+    = f.submit 'Creation!'
