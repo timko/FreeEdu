@@ -13,12 +13,12 @@ Background: courses have been added to the database
   |Feel Sorry for Urself|PE101        |
 
   Given the following videos exist:
-  |name                 | course_id | time    | size | source     |
-  |TDD                  | 1         | "30:40" | 5MB  | "blah.com" |
-  |BDD                  | 1         | "30:40" | 5MB  | "blah.com" |
-  |Interviewing         | 2         | "30:40" | 5MB  | "blah.com" |
-  |Tips and Tricks      | 3         | "30:40" | 5MB  | "blah.com" |
-  |GO OUT AND SOCIALIZE | 4         | "30:40" | 5MB  | "blah.com" |
+  |name                 | time    | size | source     |
+  |TDD                  | "30:40" | 5MB  | "blah.com" |
+  |BDD                  | "30:40" | 5MB  | "blah.com" |
+  |Interviewing         | "30:40" | 5MB  | "blah.com" |
+  |Tips and Tricks      | "30:40" | 5MB  | "blah.com" |
+  |GO OUT AND SOCIALIZE | "30:40" | 5MB  | "blah.com" |
 
   Given the following users exist:
   |name                 |password |
