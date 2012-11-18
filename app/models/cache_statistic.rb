@@ -29,6 +29,11 @@ class CacheStatistic < ActiveRecord::Base
             'bandwidth_effectively_used', 'server_load']
   end
 
+  def self.stat_colors
+    return {'num_of_users' => '0000FF', 'bandwidth_demand' => '00FF00', 'num_of_caches' => '00FFFF', 'storage_donated' => 'FF0000',     
+            'bandwidth_donated' => 'FF00FF', 'bandwidth_effectively_used' => 'FFFF00', 'server_load' => '000000'}
+  end
+
   def self.extract_all_stats
     return self.extract_sorted_stats(self.all_stats)
   end
