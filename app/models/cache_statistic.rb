@@ -2,6 +2,21 @@ class CacheStatistic < ActiveRecord::Base
   attr_accessible :log_time, :num_of_users, :bandwidth_demand, :num_of_caches
   attr_accessible :storage_donated, :bandwidth_donated, :bandwidth_effectively_used, :server_load
   validates :log_time, :uniqueness => true
+
+  def self.all_stats
+    ['num_of_users', 'bandwidth_demand', 'num_of_caches', 'storage_donated', 'bandwidth_donated',
+            'bandwidth_effectively_used', 'server_load']
+  end
+
+  def self.stat_colors
+    {'num_of_users' => '0000FF', 'bandwidth_demand' => '00FF00', 'num_of_caches' => '00FFFF', 'storage_donated' => 'FF0000',     
+            'bandwidth_donated' => 'FF00FF', 'bandwidth_effectively_used' => 'FFFF00', 'server_load' => '000000'}
+  end
+
+  def self.stat_names
+    {'num_of_users' => 'Number of Users', 'bandwidth_demand' => 'Bandwidth Demand', 'num_of_caches' => 'Number of Caches', 'storage_donated' => 'Storage Donated', 'bandwidth_donated' => 'Bandwidth Donated', 'bandwidth_effectively_used' => 'Bandwidth Effectively Used', 'server_load' => 'Server Load'}
+  end
+
   def self.extract_sorted_stat(stat_field)
     stats = CacheStatistic.order(:log_time).select(stat_field)
     to_return = []
@@ -22,16 +37,6 @@ class CacheStatistic < ActiveRecord::Base
       to_return << stat_hash
     end
     return to_return
-  end
-
-  def self.all_stats
-    return ['num_of_users', 'bandwidth_demand', 'num_of_caches', 'storage_donated', 'bandwidth_donated',
-            'bandwidth_effectively_used', 'server_load']
-  end
-
-  def self.stat_colors
-    return {'num_of_users' => '0000FF', 'bandwidth_demand' => '00FF00', 'num_of_caches' => '00FFFF', 'storage_donated' => 'FF0000',     
-            'bandwidth_donated' => 'FF00FF', 'bandwidth_effectively_used' => 'FFFF00', 'server_load' => '000000'}
   end
 
   def self.extract_all_stats

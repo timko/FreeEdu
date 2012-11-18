@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121118020207) do
+=======
+ActiveRecord::Schema.define(:version => 20121118013237) do
+>>>>>>> 65fbc20132ebeafdcf7b34f654c191344cc41e54
 
   create_table "cache_statistics", :force => true do |t|
     t.datetime "log_time"
@@ -27,10 +31,11 @@ ActiveRecord::Schema.define(:version => 20121118020207) do
   end
 
   create_table "courses", :force => true do |t|
-    t.string   "course_num"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
+    t.string   "subject"
   end
 
   create_table "users", :force => true do |t|

@@ -19,7 +19,7 @@ FreEdu::Application.routes.draw do
   resources :courses do
     resources :videos
   end
-
+ 
   match 'statistics/total' => 'cache_statistics#total_stats', :as => 'total_stats', :via => :get
   match 'statistics/:fields' => 'cache_statistics#field_stats', :as => 'field_stats', :via => :get
 

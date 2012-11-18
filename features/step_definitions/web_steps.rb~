@@ -229,7 +229,7 @@ end
  
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   if page_name == 'the settings page'
-    @user = User.find(1)
+    @user = User.create!(:name => 'spam', :password => 'abc')
   end
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should

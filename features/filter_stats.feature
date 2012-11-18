@@ -12,19 +12,16 @@ Background: Starting from the homepage
   And I am on the homepage
 
 Scenario: Selecting only the server load
-  When I check "server_load"
-  And I uncheck the following stats: "# of Users, Bandwidth Demand, # of Caches, Storage Donated, Bandwidth Donated, Bandwidth Effectively Used"
-  And I press "apply_filter"
-  Then I should see "Server Load"
-  And I should not see the following stats:  "# of Users, Bandwidth Demand, # of Caches, Storage Donated, Bandwidth Donated, Bandwidth Effectively Used"
+  When I check "stats_server_load"
+  And I uncheck the following stats: "stats_num_of_users, stats_bandwidth_demand, stats_num_of_caches, stats_storage_donated, stats_bandwidth_donated, stats_bandwidth_effectively_used"
+  And I press "Update"
+  Then the "stats_server_load" checkbox should be checked
+  And the following checkboxes should not be checked: "stats_num_of_users, stats_bandwidth_demand, stats_num_of_caches, stats_storage_donated, stats_bandwidth_donated, stats_bandwidth_effectively_used"
 
-Scenario: View the total cache statistics
-  When I am on the total cache statistics page
-  Then I should see "Total Statistics"
-  And I should see "Log Time" 
-  
-Scenario: Directing to the homepage
-  When I am on the total cache statistics page
-  And I follow "FreeEdu"
-  Then I should be on the homepage
-  
+Scenario: Selecting Number of Users, Number of Caches, Bandwidth Demand, and Bandwidth Donated
+  When I check the following stats: "stats_num_of_users, stats_num_of_caches, stats_bandwidth_demand, stats_bandwidth_donated"
+  And I uncheck the following stats: "stats_storage_donated, stats_bandwidth_effectively_used, stats_server_load"
+  And I press "Update"
+  Then the following checkboxes should be checked: "stats_num_of_users, stats_bandwidth_demand, stats_num_of_caches, stats_bandwidth_donated"
+  And the following checkboxes should not be checked: "stats_storage_donated, stats_bandwidth_effectively_used, stats_server_load"
+
