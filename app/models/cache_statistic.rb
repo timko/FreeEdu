@@ -54,7 +54,7 @@ class CacheStatistic < ActiveRecord::Base
                                    'Bandwidth Effectively Used', 'Server Load'],
                        :line_colors => "0000FF,00FF00,00FFFF,FF0000,FF00FF,FFFF00,000000",
                        :axis_with_labels => 'y',
-                       :max_value => 2000,
+                       :max_value => 3000,
                        :min_value => 0)
   end
   
