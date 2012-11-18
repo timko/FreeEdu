@@ -46,18 +46,44 @@ class CacheStatistic < ActiveRecord::Base
   def self.get_whole_graph
     raw_stats = self.extract_all_stats
     data_list = []
+    legend_list = []
+    colors_list = []
     self.all_stats.each do |stat|
       to_add = []
       raw_stats.each do |collection|
         to_add << collection[stat]
       end
       data_list << to_add
+      legend_list << self.stat_names[stat]
+      colors_list << self.stat_colors[stat]
     end
     return Gchart.line(:data =>data_list,
                        :size => '800x300',
-                       :legend => ['# of Users', 'Bandwidth Demand', '# of Caches', 'Storage Donated', 'Bandwidth Donated',
-                                   'Bandwidth Effectively Used', 'Server Load'],
-                       :line_colors => "0000FF,00FF00,00FFFF,FF0000,FF00FF,FFFF00,000000",
+                       :legend => legend_list,
+                       :line_colors => colors_list.join(','),
+                       :axis_with_labels => 'y',
+                       :max_value => 3000,
+                       :min_value => 0)
+  end
+
+  def self.get_selected_graph(stats_list)
+    raw_stats = self.extract_sorted_stats(stats_list)
+    data_list = []
+    legend_list = []
+    colors_list = []
+    stats_list.each do |stat|
+      to_add = []
+      raw_stats.each do |collection|
+        to_add << collection[stat]
+      end
+      data_list << to_add
+      legend_list << self.stat_names[stat]
+      colors_list << self.stat_colors[stat]
+    end
+    return Gchart.line(:data =>data_list,
+                       :size => '800x300',
+                       :legend => legend_list,
+                       :line_colors => colors_list.join(','),
                        :axis_with_labels => 'y',
                        :max_value => 3000,
                        :min_value => 0)

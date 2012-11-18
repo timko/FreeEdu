@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   #  @courses: should be an array of all course objects
   def index
 
-    @selected_stats = []
+    @selected_stats = {}
     @all_stats = CacheStatistic.all_stats
     @real_stat_names = CacheStatistic.stat_names
     @courses = Course.all
