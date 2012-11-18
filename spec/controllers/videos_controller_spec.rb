@@ -6,8 +6,8 @@ describe VideosController do
     
 
     before :each do
-      video = FactoryGirl.build(:video, :name => 'BDD', :course_num => 'CS169')
-      course = FactoryGirl.build(:course, :title => 'SaaS', :course_num => 'CS169')
+      video = FactoryGirl.build(:video, :name => 'BDD')
+      course = FactoryGirl.build(:course, :title => 'SaaS')
       Course.stub(:find).with('1').and_return(course)
       get :index, {:course_id => 1}
     end
@@ -28,8 +28,8 @@ describe VideosController do
   describe 'watching a video from a list of videos' do
 
     before :each do
-      course = FactoryGirl.create(:course, :title => 'SaaS', :course_num => 'CS169', :id => 1)
-      @video = FactoryGirl.create(:video, :name => 'BDD', :course_num => 'CS169', :id => 1, :course_id => 1)
+      course = FactoryGirl.create(:course, :title => 'SaaS', :id => 1)
+      @video = FactoryGirl.create(:video, :name => 'BDD', :id => 1, :course_id => 1)
       get :show, :course_id => 1,:id => 1
     end
 
