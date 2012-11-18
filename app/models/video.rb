@@ -1,6 +1,5 @@
 class Video < ActiveRecord::Base
-  attr_accessible :course_num, :size, :time, :name, :source
-  validates :course_num, :presence => true
+  attr_accessible :name, :source
   validates :source, :presence => true
 
   belongs_to :course
