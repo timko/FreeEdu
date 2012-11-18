@@ -13,15 +13,15 @@ Background: Starting from the homepage
 
 Scenario: Selecting only the server load
   When I check "stats_server_load"
-  And I uncheck the following stats: "stats_num_of_users, stats_bandwidth_demand, stats_num_of_caches, stats_storage_donated, stats_bandwidth_donated, stats_bandwidth_effectively_used"
+  And I uncheck the following stats: "num_of_users, bandwidth_demand, num_of_caches, storage_donated, bandwidth_donated, bandwidth_effectively_used"
   And I press "Update"
   Then the "stats_server_load" checkbox should be checked
-  And the following checkboxes should not be checked: "stats_num_of_users, stats_bandwidth_demand, stats_num_of_caches, stats_storage_donated, stats_bandwidth_donated, stats_bandwidth_effectively_used"
+  And the following checkboxes should not be checked: "num_of_users, bandwidth_demand, num_of_caches, storage_donated, bandwidth_donated, bandwidth_effectively_used"
 
 Scenario: Selecting Number of Users, Number of Caches, Bandwidth Demand, and Bandwidth Donated
-  When I check the following stats: "stats_num_of_users, stats_num_of_caches, stats_bandwidth_demand, stats_bandwidth_donated"
-  And I uncheck the following stats: "stats_storage_donated, stats_bandwidth_effectively_used, stats_server_load"
+  When I check the following stats: "num_of_users, num_of_caches, bandwidth_demand, bandwidth_donated"
+  And I uncheck the following stats: "storage_donated, bandwidth_effectively_used, server_load"
   And I press "Update"
-  Then the following checkboxes should be checked: "stats_num_of_users, stats_bandwidth_demand, stats_num_of_caches, stats_bandwidth_donated"
-  And the following checkboxes should not be checked: "stats_storage_donated, stats_bandwidth_effectively_used, stats_server_load"
+  Then the following checkboxes should be checked: "num_of_users, bandwidth_demand, num_of_caches, bandwidth_donated"
+  And the following checkboxes should not be checked: "storage_donated, bandwidth_effectively_used, server_load"
 
