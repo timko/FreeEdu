@@ -7,13 +7,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @current_user = User.find_by_name(params[:user][:name])
-    if @current_user and @current_user.authenticate(params[:user][:password]) 
-      session[:user_id] = @current_user.id
-      redirect_to edit_user_path(@current_user.id)
+    @user = User.find_by_name(params[:user][:name])
+    if @user and @user.authenticate(params[:user][:password]) 
+      session[:user_id] = @user.id
+      redirect_to edit_user_path(@user.id)
     else
       flash[:notice] = "Name/Password not found."  
-      redirect_to root_path
+      redirect_to new_user_path
     end
   end
 

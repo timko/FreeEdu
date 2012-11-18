@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "New user #{@user.name} created."
-      redirect_to edit_user_path(@user.id)
+      redirect_to login_path({:user => params[:user]}) and return
     else
       render 'new'
     end
@@ -29,6 +29,6 @@ class UsersController < ApplicationController
   
   protected
   def restrict_access
-    redirect_to auth_path and return unless @current_user
+    redirect_to auth_path unless @current_user
   end
 end

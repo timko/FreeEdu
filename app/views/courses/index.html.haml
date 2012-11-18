@@ -14,6 +14,7 @@
   =button_to 'Cache Settings', settings_path, :method => :put #this is a placeholder path for now
   - if @current_user
     =link_to 'Logout', logout_path
+  =link_to 'Login', settings_path, :method => :put
   
 
 %table#courses.table.table-striped.table-bordered
