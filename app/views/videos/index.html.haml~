@@ -1,5 +1,6 @@
 %h1 Course Description
-%body 
+%body
+  hi 
   #{@course.description}
 
 %h2 Videos
