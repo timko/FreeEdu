@@ -18,4 +18,4 @@ begin
   end
 rescue
 end
-User.create!(:name => 'kelvin', :password => 'abcde', :settings => {:disk_space=> 512, :bandwidth=>160})
+User.create!(:name => 'kelvin', :password_digest => 'abcde', :settings => {:disk_space=> 512, :bandwidth=>160})

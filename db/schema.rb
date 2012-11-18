@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20121118020207) do
-=======
-ActiveRecord::Schema.define(:version => 20121118013237) do
->>>>>>> 65fbc20132ebeafdcf7b34f654c191344cc41e54
 
   create_table "cache_statistics", :force => true do |t|
     t.datetime "log_time"

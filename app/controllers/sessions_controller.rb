@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @current_user.id
       redirect_to edit_user_path(@current_user.id)
     else
-      flash[:notice] = "Login/Password not found."  
+      flash[:notice] = "Name/Password not found."  
       redirect_to root_path
     end
   end

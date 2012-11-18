@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :password_digest, :password_confirmation, :disk_space, :bandwidth
+  attr_accessible :name, :password_digest, :password_confirmation, :disk_space, :bandwidth, :password
   validates :name, :presence => true, :uniqueness => true
   has_secure_password
 
