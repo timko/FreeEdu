@@ -76,21 +76,27 @@ class CacheStatistic < ActiveRecord::Base
     data_list = []
     legend_list = []
     colors_list = []
+    max_val = 2000
     stats_list.each do |stat|
       to_add = []
       raw_stats.each do |collection|
-        to_add << collection[stat]
+        num = collection[stat]
+        if num > max_val
+          max_val = num
+        end
+        to_add << num
       end
       data_list << to_add
       legend_list << self.stat_names[stat]
       colors_list << self.stat_colors[stat]
     end
-    return Gchart.line(:data =>data_list,
+    return Gchart.line(:title => 'Cache Statistics Over Time',
+                       :data =>data_list,
                        :size => '800x300',
                        :legend => legend_list,
                        :line_colors => colors_list.join(','),
                        :axis_with_labels => 'y',
-                       :max_value => 3000,
+                       :max_value => max_val,
                        :min_value => 0)
   end
   
