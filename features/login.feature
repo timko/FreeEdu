@@ -14,18 +14,16 @@ Background: users have been added to the database
 
 Scenario: Logging in to existing account
   
-  When I press "Login"
+  When I follow "Login"
   And I fill in "user_name" with "User1"
-  And I fill in "password" with "x"
-  And I press "Login"
-  Then I should see "You have successfully logged in"
-  And I should be on the homepage
+  And I fill in "user_password" with "x"
+  And I press "Sign in"
+  And I should be on the courses page
 
 Scenario: Using a non existing username
 
-  When I press "Login"
+  When I follow "Login"
   And I fill in "user_name" with "Fake"
-  And I fill in "password" with "fake"
-  And I press "Login"
-  Then I should see "Your username and/or password is incorrect"
+  And I fill in "user_password" with "fake"
+  And I press "Sign in" 
   And I should be on the login page

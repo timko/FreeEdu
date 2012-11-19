@@ -13,9 +13,12 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
 
+    when /^the courses page$/
+      courses_path
     when /^the home\s?page$/
-      '/'
-
+      root_path
+    when /^the create_user_page$/
+      '/users'
     when /^the settings page$/
       settings_path
 
@@ -24,6 +27,9 @@ module NavigationHelpers
     
     when /^the videos page for "([^"]*)"$/
       course_videos_path(Course.find_by_title($1))
+      
+    when /^the login page$/
+      auth_path
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

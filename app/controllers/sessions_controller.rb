@@ -9,11 +9,12 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by_name(params[:user][:name])
     if @user and @user.authenticate(params[:user][:password]) 
+      flash[:notice] = "You have successfully logged in"
       session[:user_id] = @user.id
-      redirect_to settings_path
+      redirect_to courses_path
     else
-      flash[:notice] = "Name/Password not found."  
-      redirect_to new_user_path
+      flash[:notice] = "Your name and/or password is incorrect"  
+      redirect_to auth_path
     end
   end
 

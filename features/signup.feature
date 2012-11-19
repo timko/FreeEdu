@@ -6,13 +6,12 @@ I want to create a new account
 
 Background: you are on the homepage
 
-  Given I am on the homepage
+  Given I am on the login page
 
 Scenario: Creating an account
   
-  When I press "Signup"
+  When I follow "Signup"
   And I fill in "user_name" with "User1"
-  And I fill in "password" with "x"
+  And I fill in "user_password" with "x"
   And I press "Create"
-  Then I should see "Your account has been successfully created"
-  And I should be on the homepage
+  And I should be on the create_user_page

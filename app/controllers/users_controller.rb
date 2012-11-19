@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:notice] = "New user #{@user.name} created."
+      flash[:notice] = "Your account has been successfully created"
       redirect_to login_path({:user => params[:user]}) and return
     else
       render 'new'
