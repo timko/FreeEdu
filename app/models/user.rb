@@ -12,5 +12,4 @@ class User < ActiveRecord::Base
   def validate_bandwidth
     self.bandwidth = self.bandwidth ? self.bandwidth : 0
   end
-
 end
