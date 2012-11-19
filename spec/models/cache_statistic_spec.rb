@@ -97,11 +97,11 @@ describe CacheStatistic do
 
     end
     it 'should return the data in order of date' do
-        log_times = CacheStatistic.extract_sorted_stat(:log_time).sort
+        log_times = CacheStatistic.extract_sorted_stats(['log_time'])
 
-        (0...CacheStatistic.all.length).each do |num|
-          cur_record = CacheStatistic.find_by_log_time(log_times[num])
-          assert cur_record.server_load/cur_record.num_of_users == @avg_loads[num]
+        log_times.each do |collection|
+          cur_record = CacheStatistic.find_by_log_time(collection['log_time'])
+          assert cur_record.server_load/cur_record.num_of_users == @avg_loads[log_times.index(collection)]
         end
 
     end

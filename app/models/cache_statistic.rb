@@ -103,7 +103,6 @@ class CacheStatistic < ActiveRecord::Base
   def self.extract_sorted_avg_load()
     to_return = []
     stats = CacheStatistic.extract_sorted_stats(['num_of_users','server_load'])
-    server_load = CacheStatistic.extract_sorted_stat(:server_load)
     stats.each do |stat|
       to_return << stat['server_load']/stat['num_of_users']
     end
