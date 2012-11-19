@@ -13,9 +13,9 @@
         .pull-right
           %h3.nav
             - if @current_user
-              =link_to 'Logout', logout_path
+              =link_to 'Logout', logout_path, :style => "text-decoration: none"
             - else
-              =link_to 'Login', auth_path, :method => :put
+              =link_to 'Login', auth_path, :method => :put, :style => "text-decoration: none"
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
