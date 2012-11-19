@@ -17,7 +17,7 @@ module NavigationHelpers
       '/'
 
     when /^the settings page$/
-      settings_path @user
+      settings_path
 
     when /^the total cache statistics page$/
       total_stats_path
