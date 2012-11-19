@@ -5,12 +5,10 @@ FreEdu::Application.routes.draw do
 # first created -> highest priority.
 
   root :to => 'courses#index'
-  #root :to => 'videos#video_list'
-  #root :to => 'videos#watch'
-  match '/settings/' => 'sessions#index', :as => 'settings', :via =>:put
   match '/login' => 'sessions#create', :as => 'login'
   match '/logout' => 'sessions#destroy', :as => 'logout'
-  match '/auth' => 'sessions#index', :as => 'auth'
+  match '/auth' => 'sessions#index', :as => 'auth', :via => :put
+  match '/settings' => 'users#edit', :as => 'settings'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

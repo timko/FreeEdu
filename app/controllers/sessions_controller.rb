@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   
   def index
     if session[:user_id]
-      redirect_to edit_user_path(session[:user_id])
+      redirect_to settings_path(:id => session[:user_id])
     end
   end
 
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     @user = User.find_by_name(params[:user][:name])
     if @user and @user.authenticate(params[:user][:password]) 
       session[:user_id] = @user.id
-      redirect_to edit_user_path(@user.id)
+      redirect_to settings_path(:id => @user.id)
     else
       flash[:notice] = "Name/Password not found."  
       redirect_to new_user_path

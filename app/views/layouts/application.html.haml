@@ -7,7 +7,15 @@
     = csrf_meta_tags
 
   %body
-    %h1.navbar-inner= link_to "FreeEdu", '/', :id => 'home_link', :style => "text-decoration: none"
+    .navbar
+      %h1.navbar-inner
+        =link_to "FreeEdu", '/', :id => 'home_link', :style => "text-decoration: none"
+        .pull-right
+          %h3.nav
+            - if @current_user
+              =link_to 'Logout', logout_path
+            - else
+              =link_to 'Login', auth_path, :method => :put
     #main
       - if flash[:notice]
         #notice.message= flash[:notice]
