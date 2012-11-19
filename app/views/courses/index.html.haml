@@ -1,10 +1,3 @@
-= form_tag courses_path, :method => :get, :id => 'stats_form' do
-  Include: 
-  - @all_stats.each do |stat|
-    = @real_stat_names[stat]
-    = check_box_tag "stats[#{stat}]", 1, (@selected_stats.include?(stat) or @selected_stats == {})
-  = submit_tag 'Update', :id => 'stats_submit'
-
 = image_tag(@graph)
 
 %h1 Courses
