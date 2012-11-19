@@ -6,19 +6,18 @@ Feature: watch a video from a course
 Background: courses have been added to the database
   
   Given the following courses exist:
-  |title                |course_num   |
-  |Software Engineering |CS169        |
-  |Getting FB Job       |CS999        |
-  |Hackathon Crap       |CS998        |
-  |Feel Sorry for Urself|PE101        |
+  |subject          |title   |
+  |Computer Science |CS10    |
+  |Computer Science |CS169   |
+  |Biology          |BIO1A   |
 
-  Given the following videos exist:
-  |name                 | time    | size | source     |
-  |TDD                  | "30:40" | 5MB  | "blah.com" |
-  |BDD                  | "30:40" | 5MB  | "blah.com" |
-  |Interviewing         | "30:40" | 5MB  | "blah.com" |
-  |Tips and Tricks      | "30:40" | 5MB  | "blah.com" |
-  |GO OUT AND SOCIALIZE | "30:40" | 5MB  | "blah.com" |
+  Given the following videos exist:([^"].*)$
+  |name        | time    | size | source                               | course_id |
+  |TDD         | "30:40" | 5MB  | 'https://www.youtube.com/embed/Fr-B4xHZRzY?feature=player_embedded' | 2         |
+  |BDD         | "30:40" | 5MB  | 'https://www.youtube.com/embed/Fr-B4xHZRzY?feature=player_embedded' | 2         |
+  |Recursion   | "30:40" | 5MB  | 'https://www.youtube.com/embed/Fr-B4xHZRzY?feature=player_embedded' | 1         |
+  |Krebs Cycle | "30:40" | 5MB  | 'https://www.youtube.com/embed/Fr-B4xHZRzY?feature=player_embedded' | 3         |
+  |Cells       | "30:40" | 5MB  | 'https://www.youtube.com/embed/Fr-B4xHZRzY?feature=player_embedded' | 3         |
 
   Given the following users exist:
   |name                 |password |
@@ -27,10 +26,11 @@ Background: courses have been added to the database
   And I am on the homepage
 
 Scenario: watch a video from a course
-  When I am on the videos page for "Software Engineering"
+  When I am on the videos page for "CS169"
   Then I should see "TDD"
   And I should see "BDD"
   And I should see "30:40"
   And I should see "5MB"
   When I follow "TDD"
   Then I should see "Watch TDD"
+  Then I should see "https://www.youtube.com/embed/Fr-B4xHZRzY?feature=player_embedded" inside iframe

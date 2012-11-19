@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe CacheStatistic do
 
+=begin
   describe 'extracting a list of dates from the database' do
 
     before :each do
@@ -77,7 +78,7 @@ describe CacheStatistic do
 
     end
   end
-
+=end
   describe 'extracting server load over number of users from the database' do
 
     before :each do
@@ -96,11 +97,11 @@ describe CacheStatistic do
 
     end
     it 'should return the data in order of date' do
-        log_times = CacheStatistic.extract_sorted_stat(:log_time).sort
+        log_times = CacheStatistic.extract_sorted_stats(['log_time'])
 
-        (0...CacheStatistic.all.length).each do |num|
-          cur_record = CacheStatistic.find_by_log_time(log_times[num])
-          assert cur_record.server_load/cur_record.num_of_users == @avg_loads[num]
+        log_times.each do |collection|
+          cur_record = CacheStatistic.find_by_log_time(collection['log_time'])
+          assert cur_record.server_load/cur_record.num_of_users == @avg_loads[log_times.index(collection)]
         end
 
     end
@@ -131,6 +132,7 @@ describe CacheStatistic do
 
     end 
   end
+
   describe 'loading the log file into the database' do
     it 'should create records from a list' do
       @fake_list = ["2012-11-04 17:35:11 913 1739.02369435 302 313.185496733 1178.55616739 1096.46895932 642.55473503"]
@@ -144,10 +146,35 @@ describe CacheStatistic do
       assert CacheStatistic.all.length == 1
     end 
   end
+
   describe 'parsing a log file correctly to add to the database' do 
     it 'should parse a string a hash of seperate attributes of the record' do
       @fake_input = "2012-11-04 17:35:11 913 1739.02369435 302 313.185496733 1178.55616739 1096.46895932 642.55473503"
       CacheStatistic.parse(@fake_input).should == {:log_time => "2012-11-04 17:35:11", :num_of_users => 913, :bandwidth_demand => 1739.02369435, :num_of_caches => 302, :storage_donated => 313.185496733, :bandwidth_donated => 1178.55616739, :bandwidth_effectively_used => 1096.46895932, :server_load => 642.55473503}
     end
+  end
+
+  describe 'converting cache statistics database into a graph' do
+
+    before :each do
+      @fake_list = ['num_of_users','server_load']
+      @fake_collection = [{'num_of_users'=> 22, 'server_load'=>1},{'num_of_users'=> 23, 'server_load'=>2},{'num_of_users'=> 24, 'server_load'=>3},{'num_of_users'=> 25, 'server_load'=>4},{'num_of_users'=> 26, 'server_load'=>5}]
+      (1..5).each do |num|
+        FactoryGirl.create(:cache_statistic, :log_time => "2012-11-0#{num} 13:44:36", :server_load => num, :num_of_users => 21+num)
+      end
+      @result_graph = CacheStatistic.get_selected_graph(@fake_list)
+    end
+
+    it 'should call the CacheStatistic method that returns select stats in order of their log times' do
+      CacheStatistic.should_receive(:extract_sorted_stats).with(@fake_list).and_return(@fake_collection)
+      CacheStatistic.get_selected_graph(@fake_list)
+    end
+
+    it 'should call the Gchart method that turns data into a graph' do
+      CacheStatistic.stub(:extract_sorted_stats).with(@fake_list).and_return(@fake_collection)
+      Gchart.should_receive(:line)
+      CacheStatistic.get_selected_graph(@fake_list)
+    end
+
   end
 end

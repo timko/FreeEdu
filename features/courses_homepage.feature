@@ -7,11 +7,10 @@ I want to take a course with an online platform
 Background: courses have been added to the database
   
   Given the following courses exist:
-  |title                |course_num   |
-  |Software Engineering |CS169        |
-  |Getting FB Job       |CS999        |
-  |Hackathon Crap       |CS998        |
-  |Feel Sorry for Urself|PE101        |
+  |subject          |title   |
+  |Computer Science |CS10    |
+  |Computer Science |CS169   |
+  |Biology          |BIO1A   |
 
   Given the following users exist:
   |name                 |password |
@@ -21,12 +20,13 @@ Background: courses have been added to the database
 
 Scenario: being able to see the courses on the website
 
-  Then I should see "Software Engineering"
-  And I should see "Getting FB Job"
-  And I should see "Hackathon Crap"
-  And I should see "Feel Sorry for Urself"
+  Then I should see "CS10"
+  And I should see "CS169"
+  And I should see "BIO1A"
+  And I should see "Computer Science"
+  And I should see "Biology"
 
 Scenario: clicking a course title
   
-  When I follow "Software Engineering"
-  Then I should be on the videos page for "Software Engineering"
+  When I follow "CS169"
+  Then I should be on the videos page for "CS169"

@@ -1,20 +1,12 @@
-= form_tag courses_path, :method => :get, :id => 'stats_form' do
-  Include: 
-  - @all_stats.each do |stat|
-    = @real_stat_names[stat]
-    = check_box_tag "stats[#{stat}]", 1, (@selected_stats.include?(stat) or @selected_stats == {})
-  = submit_tag 'Update', :id => 'stats_submit'
-
 = image_tag(@graph)
 
 %h1 Courses
 
 %div#settings{:align => "right"}
-  =link_to 'Total Cache Statistics', total_stats_path
-  =button_to 'Cache Settings', settings_path, :method => :put #this is a placeholder path for now
-  - if @current_user
-    =link_to 'Logout', logout_path
-  =link_to 'Login', settings_path, :method => :put
+  =link_to 'Total Cache Statistics', total_stats_path, :style => "text-decoration: none"
+  /- if @current_user
+  =button_to 'Cache Settings', auth_path, :method => :put
+  
   
 
 %table#courses.table.table-striped.table-bordered

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :restrict_access, :except => [:new, :create]
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    @user = User.find(@current_user.id)
   end
   
   def new

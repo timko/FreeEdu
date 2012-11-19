@@ -3,6 +3,7 @@ class CacheStatistic < ActiveRecord::Base
   attr_accessible :storage_donated, :bandwidth_donated, :bandwidth_effectively_used, :server_load
   validates :log_time, :uniqueness => true
 
+#note that log_time is not included in here
   def self.all_stats
     ['num_of_users', 'bandwidth_demand', 'num_of_caches', 'storage_donated', 'bandwidth_donated',
             'bandwidth_effectively_used', 'server_load']
@@ -17,6 +18,7 @@ class CacheStatistic < ActiveRecord::Base
     {'num_of_users' => 'Number of Users', 'bandwidth_demand' => 'Bandwidth Demand', 'num_of_caches' => 'Number of Caches', 'storage_donated' => 'Storage Donated', 'bandwidth_donated' => 'Bandwidth Donated', 'bandwidth_effectively_used' => 'Bandwidth Effectively Used', 'server_load' => 'Server Load'}
   end
 
+=begin
   def self.extract_sorted_stat(stat_field)
     stats = CacheStatistic.order(:log_time).select(stat_field)
     to_return = []
@@ -25,7 +27,8 @@ class CacheStatistic < ActiveRecord::Base
     end
     return to_return
   end
-  
+=end  
+
   def self.extract_sorted_stats(stat_field_list)
     to_return = []
     stats = CacheStatistic.order(:log_time).select(stat_field_list.join(", "))
@@ -39,6 +42,7 @@ class CacheStatistic < ActiveRecord::Base
     return to_return
   end
 
+=begin
   def self.extract_all_stats
     return self.extract_sorted_stats(self.all_stats)
   end
@@ -65,41 +69,47 @@ class CacheStatistic < ActiveRecord::Base
                        :max_value => 3000,
                        :min_value => 0)
   end
+=end
 
   def self.get_selected_graph(stats_list)
     raw_stats = self.extract_sorted_stats(stats_list)
     data_list = []
     legend_list = []
     colors_list = []
+    max_val = 2000
     stats_list.each do |stat|
       to_add = []
       raw_stats.each do |collection|
-        to_add << collection[stat]
+        num = collection[stat]
+        if num > max_val
+          max_val = num
+        end
+        to_add << num
       end
       data_list << to_add
       legend_list << self.stat_names[stat]
       colors_list << self.stat_colors[stat]
     end
-    return Gchart.line(:data =>data_list,
+    return Gchart.line(:title => 'Cache Statistics Over Time',
+                       :data =>data_list,
                        :size => '800x300',
                        :legend => legend_list,
                        :line_colors => colors_list.join(','),
                        :axis_with_labels => 'y',
-                       :max_value => 3000,
+                       :max_value => max_val,
                        :min_value => 0)
   end
   
   def self.extract_sorted_avg_load()
     to_return = []
-    num_users = CacheStatistic.extract_sorted_stat(:num_of_users)
-    server_load = CacheStatistic.extract_sorted_stat(:server_load)
-    (0...server_load.length).each do |num|
-      to_return << server_load[num]/num_users[num]
+    stats = CacheStatistic.extract_sorted_stats(['num_of_users','server_load'])
+    stats.each do |stat|
+      to_return << stat['server_load']/stat['num_of_users']
     end
     return to_return
   end
 
-  def self.create_from_file(stat_file = 'script/server_traffic.log', sample_rate = 1)
+  def self.create_from_file(stat_file = 'app/assets/server_traffic.log', sample_rate = 1)
     log_lines = IO.readlines(File.open(stat_file))
     (0...log_lines.length).step(sample_rate) do |log_num|
       CacheStatistic.create(CacheStatistic.parse(log_lines[log_num]))
