@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
     end
 
     if @selected_stats == {}
-      @graph = CacheStatistic.get_whole_graph and return
+      @graph = CacheStatistic.get_selected_graph(@all_stats) and return
     end
 
     @graph = CacheStatistic.get_selected_graph(@selected_stats.keys)

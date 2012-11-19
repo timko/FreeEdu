@@ -3,6 +3,7 @@ class CacheStatistic < ActiveRecord::Base
   attr_accessible :storage_donated, :bandwidth_donated, :bandwidth_effectively_used, :server_load
   validates :log_time, :uniqueness => true
 
+#note that log_time is not included in here
   def self.all_stats
     ['num_of_users', 'bandwidth_demand', 'num_of_caches', 'storage_donated', 'bandwidth_donated',
             'bandwidth_effectively_used', 'server_load']
@@ -17,6 +18,7 @@ class CacheStatistic < ActiveRecord::Base
     {'num_of_users' => 'Number of Users', 'bandwidth_demand' => 'Bandwidth Demand', 'num_of_caches' => 'Number of Caches', 'storage_donated' => 'Storage Donated', 'bandwidth_donated' => 'Bandwidth Donated', 'bandwidth_effectively_used' => 'Bandwidth Effectively Used', 'server_load' => 'Server Load'}
   end
 
+=begin
   def self.extract_sorted_stat(stat_field)
     stats = CacheStatistic.order(:log_time).select(stat_field)
     to_return = []
@@ -25,7 +27,8 @@ class CacheStatistic < ActiveRecord::Base
     end
     return to_return
   end
-  
+=end  
+
   def self.extract_sorted_stats(stat_field_list)
     to_return = []
     stats = CacheStatistic.order(:log_time).select(stat_field_list.join(", "))
@@ -39,6 +42,7 @@ class CacheStatistic < ActiveRecord::Base
     return to_return
   end
 
+=begin
   def self.extract_all_stats
     return self.extract_sorted_stats(self.all_stats)
   end
@@ -65,6 +69,7 @@ class CacheStatistic < ActiveRecord::Base
                        :max_value => 3000,
                        :min_value => 0)
   end
+=end
 
   def self.get_selected_graph(stats_list)
     raw_stats = self.extract_sorted_stats(stats_list)
@@ -91,10 +96,10 @@ class CacheStatistic < ActiveRecord::Base
   
   def self.extract_sorted_avg_load()
     to_return = []
-    num_users = CacheStatistic.extract_sorted_stat(:num_of_users)
+    stats = CacheStatistic.extract_sorted_stats(['num_of_users','server_load'])
     server_load = CacheStatistic.extract_sorted_stat(:server_load)
-    (0...server_load.length).each do |num|
-      to_return << server_load[num]/num_users[num]
+    stats.each do |stat|
+      to_return << stat['server_load']/stat['num_of_users']
     end
     return to_return
   end
