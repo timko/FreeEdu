@@ -4,7 +4,8 @@
 
 %div#settings{:align => "right"}
   =link_to 'Total Cache Statistics', total_stats_path
-  =button_to 'Cache Settings', auth_path, :method => :put #this is a placeholder path for now
+  /- if @current_user
+  =button_to 'Cache Settings', auth_path, :method => :put
   
   
 
