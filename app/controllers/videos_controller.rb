@@ -3,7 +3,7 @@ class VideosController < ApplicationController
   def show
     id = params[:id]
     course = Course.find(params[:course_id])
-    @video = course.videos.find(id)
+    @video = course.videos.find_by_name(id)
   end
 
   def index

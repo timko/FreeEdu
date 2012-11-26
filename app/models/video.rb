@@ -4,4 +4,9 @@ class Video < ActiveRecord::Base
 
   belongs_to :course
   attr_protected :course_id
+  
+  def to_param
+    "#{name}"
+  end
+
 end
