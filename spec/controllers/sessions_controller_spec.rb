@@ -15,17 +15,16 @@ describe SessionsController do
   
   describe 'logging in' do
     before :each do
-      User.should_receive(:find_by_name)
       @valid = FactoryGirl.create(:user)
     end
     it 'has a valid login' do
-      post :create, :user => @valid.attributes
-      response.should redirect_to(settings_path)
+      post :create, :user => {:name => @valid.name, :password => @valid.password}
+      response.should redirect_to(courses_path)
     end
     it 'does not have a valid login' do
       invalid = FactoryGirl.build(:user, :name => 'invalid')
       post :create, :user => invalid.attributes
-      response.should redirect_to(new_user_path)
+      response.should redirect_to(auth_path)
     end
   end
   
