@@ -3,12 +3,11 @@ require 'spec_helper'
 describe SessionsController do
   describe 'shows settings page if user is logged in' do
     before :each do
-      @fake_user = FactoryGirl.build(:user)
-      session[:user_id] = @fake_user.id
-      
+      @current_user = FactoryGirl.create(:user)
+      session[:user_id] = @current_user.id
     end
     it 'should redirect to the settings path' do
-      get :index
+      post :index
       response.should redirect_to(settings_path)
     end
   end
