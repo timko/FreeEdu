@@ -4,8 +4,8 @@
 
 %div#settings{:align => "right"}
   =link_to 'Total Cache Statistics', total_stats_path, :style => "text-decoration: none"
-  /- if @current_user
-  =button_to 'Cache Settings', auth_path
+  - if @current_user
+    =button_to 'Cache Settings', settings_path
   
   
 
@@ -18,4 +18,4 @@
     - @courses.each do |course|
       %tr
         %td= course.subject
-        %td= link_to "#{course.title}", course_videos_path(course.id) #this is a placeholder path for now
+        %td= link_to "#{course.title}", course_videos_path(course.id)
