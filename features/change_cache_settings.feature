@@ -17,7 +17,6 @@ Scenario: Successfully changing cache settings
   Given I am logged in as "User1"
   Then show me the page
   When I press "Cache Settings"
-  Then show me the page
   Then I should see "Disk Space"
   And I should see "Bandwidth"
 
