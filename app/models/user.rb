@@ -13,8 +13,4 @@ class User < ActiveRecord::Base
     self.bandwidth = self.bandwidth ? self.bandwidth : 0
   end
 
-
-
-
-
 end
