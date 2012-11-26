@@ -32,7 +32,7 @@ describe UsersController do
   describe 'adding a user'do
     it 'should add a user to the database' do
       before = User.count
-      post :create, :user => FactoryGirl.build(:user)
+      post :create, :user => FactoryGirl.build(:user).attributes
       (before+1).should == User.count
     end
   end

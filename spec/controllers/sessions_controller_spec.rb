@@ -5,9 +5,10 @@ describe SessionsController do
     before :each do
       @fake_user = FactoryGirl.build(:user)
       session[:user_id] = @fake_user.id
-      get :index
+      
     end
     it 'should redirect to the settings path' do
+      get :index
       response.should redirect_to(settings_path)
     end
   end
@@ -15,16 +16,15 @@ describe SessionsController do
   describe 'logging in' do
     before :each do
       User.should_receive(:find_by_name)
+      @valid = FactoryGirl.create(:user)
     end
     it 'has a valid login' do
-      valid = FactoryGirl.build(:user)
-      valid.save!
-      post :create, :user => valid
+      post :create, :user => @valid.attributes
       response.should redirect_to(settings_path)
     end
     it 'does not have a valid login' do
-      User.stub(:find_by_name).and_return(nil)
-      post :create, :user => nil
+      invalid = FactoryGirl.build(:user, :name => 'invalid')
+      post :create, :user => invalid.attributes
       response.should redirect_to(new_user_path)
     end
   end
