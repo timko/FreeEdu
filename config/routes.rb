@@ -1,5 +1,5 @@
 FreEdu::Application.routes.draw do
-  resources :users
+  resources :users, :except => [:index]
 
 # The priority is based upon order of creation:
 # first created -> highest priority.
@@ -7,7 +7,7 @@ FreEdu::Application.routes.draw do
   root :to => 'courses#index'
   match '/login' => 'sessions#create', :as => 'login'
   match '/logout' => 'sessions#destroy', :as => 'logout'
-  match '/auth' => 'sessions#index', :as => 'auth', :via => :put
+  match '/auth' => 'sessions#index', :as => 'auth'
   match '/settings' => 'users#edit', :as => 'settings'
 
   # Sample of regular route:
