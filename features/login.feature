@@ -19,6 +19,7 @@ Scenario: Logging in to existing account
   And I fill in "user_password" with "x"
   And I press "Sign in"
   And I should be on the courses page
+  And I should see "User1"
 
 Scenario: Using a non existing username
 
