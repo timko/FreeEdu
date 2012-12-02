@@ -5,29 +5,18 @@ class CacheStatistic < ActiveRecord::Base
 
 #note that log_time is not included in here
   def self.all_stats
-    ['num_of_users', 'bandwidth_demand', 'num_of_caches', 'storage_donated', 'bandwidth_donated',
-            'bandwidth_effectively_used', 'server_load']
+    ['num_of_users', 'bandwidth_demand', 'bandwidth_donated', 'bandwidth_effectively_used', 
+     'num_of_caches','server_load', 'storage_donated']
   end
 
   def self.stat_colors
-    {'num_of_users' => '0000FF', 'bandwidth_demand' => '00FF00', 'num_of_caches' => '00FFFF', 'storage_donated' => 'FF0000',     
-            'bandwidth_donated' => 'FF00FF', 'bandwidth_effectively_used' => 'FFFF00', 'server_load' => '000000'}
+    {'num_of_users' => '0000FF','bandwidth_demand' => '00FF00', 'bandwidth_donated' => 'FF00FF', 'bandwidth_effectively_used' => 'FFFF00',
+     'num_of_caches' => '00FFFF', 'server_load' => '000000', 'storage_donated' => 'FF0000'}
   end
 
   def self.stat_names
-    {'num_of_users' => 'Number of Users', 'bandwidth_demand' => 'Bandwidth Demand', 'num_of_caches' => 'Number of Caches', 'storage_donated' => 'Storage Donated', 'bandwidth_donated' => 'Bandwidth Donated', 'bandwidth_effectively_used' => 'Bandwidth Effectively Used', 'server_load' => 'Server Load'}
-  end
-
-=begin
-  def self.extract_sorted_stat(stat_field)
-    stats = CacheStatistic.order(:log_time).select(stat_field)
-    to_return = []
-    stats.each do |stat|
-      to_return << stat.send(stat_field)
-    end
-    return to_return
-  end
-=end  
+    {'num_of_users' => 'Users','bandwidth_donated' => 'Bandwidth Donated', 'bandwidth_demand' => 'Bandwidth Demand', 'bandwidth_effectively_used' => 'Bandwidth Used', 'num_of_caches' => 'Caches', 'server_load' => 'Server Load',  'storage_donated' => 'Storage Donated'}
+  end 
 
   def self.extract_sorted_stats(stat_field_list)
     to_return = []
@@ -41,35 +30,6 @@ class CacheStatistic < ActiveRecord::Base
     end
     return to_return
   end
-
-=begin
-  def self.extract_all_stats
-    return self.extract_sorted_stats(self.all_stats)
-  end
-
-  def self.get_whole_graph
-    raw_stats = self.extract_all_stats
-    data_list = []
-    legend_list = []
-    colors_list = []
-    self.all_stats.each do |stat|
-      to_add = []
-      raw_stats.each do |collection|
-        to_add << collection[stat]
-      end
-      data_list << to_add
-      legend_list << self.stat_names[stat]
-      colors_list << self.stat_colors[stat]
-    end
-    return Gchart.line(:data =>data_list,
-                       :size => '800x300',
-                       :legend => legend_list,
-                       :line_colors => colors_list.join(','),
-                       :axis_with_labels => 'y',
-                       :max_value => 3000,
-                       :min_value => 0)
-  end
-=end
 
   def self.get_selected_graph(stats_list)
     raw_stats = self.extract_sorted_stats(stats_list)

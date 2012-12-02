@@ -12,9 +12,11 @@ class CacheStatisticsController < ApplicationController
       session[:stats] = @selected_stats
       redirect_to :stats => @selected_stats and return
     elsif @selected_stats == {}
+      @selected_stat_names = @all_stats
       @graph = CacheStatistic.get_selected_graph(@all_stats)
     else
-      @graph = CacheStatistic.get_selected_graph(@selected_stats.keys)
+      @selected_stat_names = @selected_stats.keys
+      @graph = CacheStatistic.get_selected_graph(@selected_stat_names)
     end
     render 'statistics/total'
   end

@@ -1,5 +1,4 @@
 *.swp
-*.log
 log/*
 tmp/*
 coverage/*

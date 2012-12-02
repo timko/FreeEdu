@@ -1,7 +1,6 @@
 %h1 Total Statistics
 
-= form_tag total_stats_path, :method => :get, :id => 'stats_form' do
-  Include: 
+= form_tag total_stats_path, :method => :get, :id => 'stats_form' do 
   - @all_stats.each do |stat|
     = @real_stat_names[stat]
     = check_box_tag "stats[#{stat}]", 1, (@selected_stats.include?(stat) or @selected_stats == {})
@@ -13,14 +12,12 @@
   %thead
     %tr
       %th Log Time
-      %th Number of Users
-      %th Number of Caches
-      %th Server Load
+      - @selected_stat_names.each do |key|
+        %th= @real_stat_names[key]
 
   %tbody
     - @stats.each do |stat|
       %tr
         %td= stat.log_time
-        %td= stat.num_of_users
-        %td= stat.num_of_caches
-        %td= stat.server_load
+        -@selected_stat_names.each do |key|
+          %td= stat.send(key)
