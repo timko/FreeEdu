@@ -1,19 +1,19 @@
-%h2 Watch #{@video.name}
+%h2 #{@video.name}
 
 %iframe{:id => "player", :allowfullscreen => "", :frameborder => "0", :height => "360", :src => @video.source, :width => "640"}
 / =image_tag "video_player.png", :alt => "#{@video.name}_video_player"
 
-%h2 Other Videos for #{@course.title}
+%h3 Other Videos for #{@course.title}
 
 %table#videos.table.table-striped.table-bordered
   %thead
     %tr
       %th Name
-      %th Time
-      %th Size
+      %th Length
+      %th Date Added
   %tbody
     - @related_videos.each do |video|
       %tr
         %td= link_to "#{video.name}", course_video_path(@course.id, video) #this is a placeholder path for now
         %td= video.time
-        %td= video.size
+        %td= video.created_at.strftime("%d %b. %Y")
