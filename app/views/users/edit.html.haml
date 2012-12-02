@@ -2,11 +2,27 @@
 
 = form_tag user_path(@user), :method => :put do
 
+  %h5 Cache Settings
   = label :user, :disk_space, 'Disk Space'
   = text_field :user, 'disk_space'
 
   = label :user, :bandwidth, 'Bandwidth'
   = text_field :user, 'bandwidth'
+  
+  %br
+  %br
+  
+  %h5 Change Password
+  = label :user, :password, 'Old Password'
+  = password_field :user, :password
 
+  = label :user, :password, 'New Password'
+  = password_field :user, :password
+  
+  = label :user, :password_confirmation, 'New Password Confirmation'
+  = password_field :user, :password_confirmation
+
+  %br
+  %br
   %br
   = submit_tag 'Save Settings'
