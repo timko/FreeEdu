@@ -12,6 +12,9 @@
         =link_to "FreeEdu", '/', :id => 'home_link', :style => "text-decoration: none"
         .pull-right
           %h3.nav
+            -if @current_user
+              =link_to 'Cache Settings', settings_path
+          %h3.nav
             - if @current_user
               %li.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"} 

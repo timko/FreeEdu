@@ -5,7 +5,7 @@ class CacheStatisticsController < ApplicationController
     @stats = CacheStatistic.all
 
     @selected_stats = params[:stats] || session[:stats] || {}
-    @all_stats = CacheStatistic.all_stats
+    @all_stats = CacheStatistic.all_stats.sort
     @real_stat_names = CacheStatistic.stat_names
 
     if params[:stats] != session[:stats] and @selected_ratings != {}
@@ -15,7 +15,7 @@ class CacheStatisticsController < ApplicationController
       @selected_stat_names = @all_stats
       @graph = CacheStatistic.get_selected_graph(@all_stats)
     else
-      @selected_stat_names = @selected_stats.keys
+      @selected_stat_names = @selected_stats.keys.sort
       @graph = CacheStatistic.get_selected_graph(@selected_stat_names)
     end
     render 'statistics/total'
