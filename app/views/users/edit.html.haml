@@ -3,11 +3,21 @@
 = form_tag user_path(@user), :method => :put do
 
   %h5 Cache Settings
-  = label :user, :disk_space, 'Disk Space'
+  Disk Space
+  %i.icon-question-sign{:title => "This is the maximum amount of your disk space that you are allowing the program to store locally in order to help serve the community."}
+  %br
   = text_field :user, 'disk_space'
-
-  = label :user, :bandwidth, 'Bandwidth'
+  MB
+  
+    
+      
+  
+  %br
+  Bandwidth
+  %i.icon-question-sign{:title => ""}
+  %br
   = text_field :user, 'bandwidth'
+  = 'kb/s'
   
   %br
   %br
