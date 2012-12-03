@@ -19,7 +19,10 @@ class CacheStatistic < ActiveRecord::Base
   end 
 
   def self.color_alerts
-    {'green' => 'We got plenty of donors; thank you for your patronage!', 'yellow' => 'Server is having a little trouble; your computing resources would be greatly appreciated', 'orange' => 'Our servers are working pretty hard; please donate your computing resoursed so we can maintain a free service', 'red' => "WE'RE FUCKED; PLEASE HELP US"}
+    {'green' => 'We got plenty of donors; thank you for your patronage!',
+     'yellow' => 'Server is having a little trouble; your computing resources would be greatly appreciated', 
+     'orange' => 'Our servers are working pretty hard; please donate your computing resources so we can maintain a free service',
+     'red' => "WE'RE FUCKED; PLEASE HELP US"}
   end
 
   def self.extract_sorted_stats(stat_field_list)
@@ -59,7 +62,8 @@ class CacheStatistic < ActiveRecord::Base
                        :size => '800x300',
                        :legend => legend_list,
                        :line_colors => colors_list.join(','),
-                       :axis_with_labels => 'y',
+                       :axis_with_labels => 'x,y',
+                       :axis_labels => [['Jan', 'Feb', 'March', 'April', 'May']],
                        :max_value => max_val,
                        :min_value => 0)
   end
