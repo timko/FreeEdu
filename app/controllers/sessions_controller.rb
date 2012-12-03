@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
   
   def index
+=begin
     if session[:user_id]
-      redirect_to settings_path
+      redirect_to settings_path and return
     end
+=end
   end
 
   def create

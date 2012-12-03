@@ -15,8 +15,20 @@ class CacheStatistic < ActiveRecord::Base
   end
 
   def self.stat_names
-    {'num_of_users' => 'Users','bandwidth_donated' => 'Bandwidth Donated', 'bandwidth_demand' => 'Bandwidth Demand', 'bandwidth_effectively_used' => 'Bandwidth Used', 'num_of_caches' => 'Caches', 'server_load' => 'Server Load',  'storage_donated' => 'Storage Donated'}
+    {'num_of_users' => 'Users','bandwidth_donated' => 'Bandwidth Donated(Mbps)', 'bandwidth_demand' => 'Bandwidth Demand(Mbps)', 'bandwidth_effectively_used' => 'Bandwidth Used(Mbps)', 'num_of_caches' => 'Caches', 'server_load' => 'Server Load(Mbps)',  'storage_donated' => 'Storage Donated(GB)'}
   end 
+
+  def self.stat_descriptions
+    {
+      'num_of_users' => 'This is the amount of users curretly watching videos',
+      'bandwidth_donated' => 'The total amount of bandwidth (in Mbps) being donated by users',
+      'bandwidth_demand' => 'The total amount of bandwidth (in Mbps) currently needed to support the website',
+      'bandwidth_effectively_used' => 'The total amount of bandwidth (in Mbps) being effectively used', 
+      'num_of_caches' => 'Total number of caches currently being used; caches are allocated from the storage that users donate',
+      'server_load' => "The current amount of bandwidth (Mbps) being used by the website's server; the lower this number is, the better",  
+      'storage_donated' => 'The total amount of storage (in GB) users have donated; this storage is used to store videos on the website'
+    }
+  end
 
   def self.color_alerts
     {'green' => 'We got plenty of donors; thank you for your patronage!',
