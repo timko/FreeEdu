@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find params[:id]
-    if !(!!(params[:user][:disk_space] =~ /^[-+]?[0-9]+$/)) || !(!!(params[:user][:bandwidth] =~ /^[+]?[0-9]+$/))
+    if !(!!(params[:user][:disk_space] =~ /^[+]?[0-9]+$/)) || !(!!(params[:user][:bandwidth] =~ /^[+]?[0-9]+$/))
       @user.errors.add "Disk Space and Bandwidth", "must be positive integers"
       render 'edit'
     else if @user.update_attributes(params[:user])
