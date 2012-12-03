@@ -4,7 +4,7 @@
 
   %h5 Cache Settings
   Disk Space
-  %i.icon-question-sign{:title => "This is the maximum amount of disk space that you are opening up to the community to use as a cache."}
+  %i.icon-question-sign{:title => "This is the maximum amount of disk space (in MB) that you are opening up to the community to use as a cache."}
   %br
   = text_field :user, 'disk_space'
   MB
@@ -14,10 +14,10 @@
   
   %br
   Bandwidth
-  %i.icon-question-sign{:title => "This is the maximum amount of bandwidth that you are giving to the community in order to distribute the data stored in your cache."}
+  %i.icon-question-sign{:title => "This is the maximum amount of bandwidth (in kbps) that you are giving to the community in order to distribute the data stored in your cache."}
   %br
   = text_field :user, 'bandwidth'
-  = 'kb/s'
+  = 'kbps'
   
   %br
   %br

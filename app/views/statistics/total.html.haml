@@ -11,7 +11,7 @@
       - @all_stats.each do |stat|
         = check_box_tag "stats[#{stat}]", 1, (@selected_stats.include?(stat) or @selected_stats == {})
         = @real_stat_names[stat]
-        %i.icon-question-sign{:title => "This is the maximum amount of disk space that you are opening up to the community to use as a cache."}
+        %i.icon-question-sign{:title => @stat_descriptions[stat]}
         %br
       = submit_tag 'Update', :id => 'stats_submit'
 
