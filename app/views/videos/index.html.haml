@@ -14,6 +14,6 @@
   %tbody
     - @videos.each do |video|
       %tr
-        %td= link_to "#{video.name}", course_video_path(@course.id, video) #this is a placeholder path for now
+        %td= link_to "#{video.name}", course_video_path(@course.id, video)
         %td= video.time
-        %td= video.created_at.strftime("%d %b. %Y")
+        %td= video.created_at.strftime("%d %b. %Y %H:%M:%S")

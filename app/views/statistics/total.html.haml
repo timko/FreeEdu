@@ -18,6 +18,6 @@
   %tbody
     - @stats.each do |stat|
       %tr
-        %td= stat.log_time
+        %td= stat.log_time.strftime("%d %b. %Y %H:%M:%S")
         -@selected_stat_names.each do |key|
           %td= stat.send(key)

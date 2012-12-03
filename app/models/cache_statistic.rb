@@ -18,6 +18,10 @@ class CacheStatistic < ActiveRecord::Base
     {'num_of_users' => 'Users','bandwidth_donated' => 'Bandwidth Donated', 'bandwidth_demand' => 'Bandwidth Demand', 'bandwidth_effectively_used' => 'Bandwidth Used', 'num_of_caches' => 'Caches', 'server_load' => 'Server Load',  'storage_donated' => 'Storage Donated'}
   end 
 
+  def self.color_alerts
+    {'green' => 'We got plenty of donors; thank you for your patronage!', 'yellow' => 'Server is having a little trouble; your computing resources would be greatly appreciated', 'orange' => 'Our servers are working pretty hard; please donate your computing resoursed so we can maintain a free service', 'red' => "WE'RE FUCKED; PLEASE HELP US"}
+  end
+
   def self.extract_sorted_stats(stat_field_list)
     to_return = []
     stats = CacheStatistic.order(:log_time).select(stat_field_list.join(", "))
@@ -89,4 +93,5 @@ class CacheStatistic < ActiveRecord::Base
     create_hash[:server_load] = hash_values[8].to_f
     return create_hash
   end
+
 end
