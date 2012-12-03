@@ -1,6 +1,6 @@
 %h1 Settings
 
--if @user.errors.any?
+-if !@user.errors.empty?
   #error_explanation
     %h4{:style => "color:red"}= "#{pluralize(@user.errors.count, "Error")}:"
     %ul
@@ -27,7 +27,9 @@
   %br
  
   %h5 Change Password
-
+  = label :old_password, 'Old Password'
+  = password_field_tag :old_password
+	
   = label :user, :password, 'New Password'
   = password_field :user, :password
   
