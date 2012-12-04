@@ -30,7 +30,7 @@ describe VideosController do
     before :each do
       course = FactoryGirl.create(:course, :title => 'SaaS', :id => 1)
       @video = FactoryGirl.create(:video, :name => 'BDD', :id => 1, :course_id => 1)
-      get :show, :course_id => 1,:id => 1
+      get :show, :course_id => 1, :id=> 'BDD'
     end
 
     it 'should select the show template for rendering' do
@@ -42,7 +42,7 @@ describe VideosController do
     end
 
     it 'should have a RESTful route' do
-      course_video_path.should == '/courses/1/videos/1'
+      course_video_path.should == '/courses/1/videos/BDD'
     end
 
   end
