@@ -4,7 +4,6 @@ module ApplicationHelper
     when :notice then "alert-info"
     when :success then "alert-success"
     when :error then "alert-error"
-    #when :alert then "alert-block"
     end
   end
 end
