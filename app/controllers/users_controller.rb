@@ -24,9 +24,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
 		passwords_match = params[:user][:password]==params[:user][:password_confirmation]
-		valid_attributes = !(!!(params[:user][:disk_space] =~ /^[+]?[0-9]+$/)) || !(!!(params[:user][:bandwidth] =~ /^[+]?[0-9]+$/))
+		invalid_attributes = !(!!(params[:user][:disk_space] =~ /^[+]?[0-9]+$/)) || !(!!(params[:user][:bandwidth] =~ /^[+]?[0-9]+$/))
 
-		if valid_attributes
+		if invalid_attributes
 			@user.errors.add "Disk Space and Bandwidth", "must be positive integers"
 		end
 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 					if passwords_match && @user.errors.empty?
 		    			@user.update_attributes!(params[:user])
 		    			flash[:notice] = "Settings successfully saved."
-		    			redirect_to settings_path
+		    			redirect_to settings_path and return
 					else
 						render 'edit'
 					end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
 					render 'edit'
 				end
     else
-			if valid_attributes
+			if invalid_attributes
 				render 'edit'
 			else
 				@user.update_attributes!(params[:user])

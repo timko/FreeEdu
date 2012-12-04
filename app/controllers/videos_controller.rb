@@ -12,7 +12,4 @@ class VideosController < ApplicationController
     @course = Course.find(params[:course_id])
     @videos = @course.videos.all
   end
-  
-  
-
 end
