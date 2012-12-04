@@ -17,14 +17,7 @@ class UsersController < ApplicationController
       flash[:success] = "Your account has been successfully created"
       redirect_to login_path({:user => params[:user]}) and return
     else
-      error_msg = []
-			error_msg << "#{@user.errors.count} #{pluralize_errors(@user.errors.count)}:"
-			@user.errors.full_messages.each do |msg|
-				error_msg << "* #{msg}"
-			end
-			error_msg = error_msg.join("<br/>").html_safe
-			flash[:error] = error_msg
-			redirect_to new_users_path
+      error_report_and_redirect_to(new_users_path)
     end
   end
   
@@ -57,16 +50,10 @@ class UsersController < ApplicationController
       	redirect_to settings_path and return
     	end
 		end
-		error_msg = []
-		error_msg << "#{@user.errors.count} #{pluralize_errors(@user.errors.count)}:"
-		@user.errors.full_messages.each do |msg|
-			error_msg << "* #{msg}"
-		end
-		error_msg = error_msg.join("<br/>").html_safe
-		flash[:error] = error_msg
-		redirect_to settings_path and return
+		error_report_and_redirect_to(settings_path)
   end
-  
+
+  # HELPERS
   protected
   def restrict_access
     redirect_to auth_path unless @current_user
@@ -78,5 +65,16 @@ class UsersController < ApplicationController
 		else
 			return "Errors"
 		end
+	end
+
+	def error_report_and_redirect_to(location)
+		error_msg = []
+		error_msg << "#{@user.errors.count} #{pluralize_errors(@user.errors.count)}:"
+		@user.errors.full_messages.each do |msg|
+			error_msg << "<i class='icon-exclamation-sign' ></i> #{msg}"
+		end
+		error_msg = error_msg.join("<br/>").html_safe
+		flash[:error] = error_msg
+		redirect_to location and return
 	end
 end
