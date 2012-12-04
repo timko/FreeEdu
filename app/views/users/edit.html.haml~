@@ -1,0 +1,40 @@
+%h1 Settings
+
+-if @user.errors.any?
+  #error_explanation
+    %h4{:style => "color:red"}= "#{pluralize(@user.errors.count, "Error")}:"
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li= msg
+
+= form_tag user_path(@user), :method => :put do
+
+  %h5 Cache Settings
+  Disk Space
+  %i.icon-question-sign{:title => "This is the maximum amount of disk space that you are opening up to the community to use as a cache."}
+  %br
+  = number_field :user, 'disk_space'
+  MB
+  
+  %br
+  Bandwidth
+  %i.icon-question-sign{:title => "This is the maximum amount of bandwidth that you are giving to the community in order to distribute the data stored in your cache."}
+  %br
+  = number_field :user, 'bandwidth'
+  = 'kb/s'
+  
+  %br
+  %br
+ 
+  %h5 Change Password
+
+  = label :user, :password, 'New Password'
+  = password_field :user, :password
+  
+  = label :user, :password_confirmation, 'New Password Confirmation'
+  = password_field :user, :password_confirmation
+
+  %br
+  %br
+  %br
+  = submit_tag 'Save Settings'

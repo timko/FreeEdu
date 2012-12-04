@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
         @bar = 'bar_ok.png'
       elsif load_to_demand <= 0.6
         @server_state = 'orange'
-        @bar = 'bar_not_ok.png'
+        @bar = 'bar_not_good.png'
       else
         @server_state = 'red'
         @bar = 'bar_bad.png'
