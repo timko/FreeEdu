@@ -23,7 +23,7 @@ describe CacheStatisticsController do
     before :each do
       @fake_stats = {'server_load' => "1", 'num_of_users' => "1"}
       @fake_selected = ['server_load','num_of_users']
-      CacheStatistic.stub(:get_selected_graph).with(@fake_stats.keys).and_return('fake_graph')
+      CacheStatistic.stub(:get_selected_graph).with(@fake_stats.keys.sort).and_return('fake_graph')
       (1..5).each do |num|
         FactoryGirl.create(:cache_statistic, :log_time => "2012-11-0#{num} 13:44:36", :server_load => num, :num_of_users => 21+num)
       end
@@ -35,14 +35,14 @@ describe CacheStatisticsController do
     end
   
     it 'should call the model method that creates a line graph using only the stats that were checkboxed' do
-      CacheStatistic.should_receive(:get_selected_graph).with(@fake_stats.keys)
+      CacheStatistic.should_receive(:get_selected_graph).with(@fake_stats.keys.sort)
       get :total_stats, :stats => @fake_stats
     end
 
     it 'should make the necessary data available to the template' do
       get :total_stats, :stats => @fake_stats
       assigns(:selected_stats).should == @fake_stats
-      assigns(:all_stats).should == CacheStatistic.all_stats
+      assigns(:all_stats).should == CacheStatistic.all_stats.sort
       assigns(:real_stat_names).should == CacheStatistic.stat_names
       assigns(:graph).should == 'fake_graph'
     end

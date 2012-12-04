@@ -2,7 +2,8 @@ class CacheStatisticsController < ApplicationController
 
   def total_stats
     CacheStatistic.create_from_file
-    @stats = CacheStatistic.order("log_time DESC")
+    @stats = CacheStatistic.all
+    @stats.sort_by! { |stat| stat.log_time}.reverse!
     @stat_descriptions = CacheStatistic.stat_descriptions
 
     @selected_stats = params[:stats] || session[:stats] || {}
