@@ -6,8 +6,8 @@
 
 -#= image_tag(@graph)
 
-%div#settings{:align => "center"}
-  = image_tag(@bar, :width => "80%")
+
+= image_tag(@bar, :width => "80%", :align => "middle")
 
 %h1 Courses
 
