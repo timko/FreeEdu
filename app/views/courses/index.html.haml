@@ -2,13 +2,15 @@
   = @color_alerts[@server_state]
 
 
-%h1#settings{:align => "center"} Server Load Status
+%h2#settings{:align => "center"} Server Load Status
 
 -#= image_tag(@graph)
 
-%div#settings{:align => "center"}
-  = image_tag(@bar, :width => "80%")
-
+%div.row
+  %div.span2
+  %div.span8
+    %div.progress-striped{:class=>@progress_bar_type}
+      %div.bar{:style=>"width: #{@load_to_demand_percentage}%"}
 %h1 Courses
 
 %div#settings{:align => "right"}
