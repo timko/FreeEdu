@@ -18,7 +18,7 @@ module NavigationHelpers
     when /^the home\s?page$/
       root_path
     when /^the create_user_page$/
-      '/users'
+      new_users_path
     when /^the settings page$/
       settings_path
 

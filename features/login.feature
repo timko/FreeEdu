@@ -28,3 +28,9 @@ Scenario: Using a non existing username
   And I fill in "user_password" with "fake"
   And I press "Sign in" 
   And I should be on the login page
+
+Scenario: Logging out
+	Given I am logged in as "User1" with password "x"
+  When I follow "Logout"
+  Then I should see "Logged out successfully."
+	And I should be on the homepage

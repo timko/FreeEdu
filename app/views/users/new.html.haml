@@ -1,12 +1,5 @@
 %h2 Create a New Account
 
--if @user.errors.any?
-  #error_explanation
-    %h4{:style => "color:red"}= "#{pluralize(@user.errors.count, "Error")} prohibited this user from being saved:"
-    %ul
-      - @user.errors.full_messages.each do |msg|
-        %li= msg
-
 = form_for @user do |f|
   %p
     = f.label :name

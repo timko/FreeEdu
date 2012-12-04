@@ -30,7 +30,6 @@ Scenario: watch a video from a course
   Then I should see "TDD"
   And I should see "BDD"
   And I should see "30:40"
-  And I should see "5MB"
   When I follow "TDD"
-  Then I should see "Watch TDD"
+  Then I should see "TDD"
   Then I should see "https://www.youtube.com/embed/Fr-B4xHZRzY?feature=player_embedded" inside iframe

@@ -9,7 +9,7 @@ FreEdu::Application.routes.draw do
   match '/logout' => 'sessions#destroy', :as => 'logout'
   match '/auth' => 'sessions#index', :as => 'auth'
   match '/settings' => 'users#edit', :as => 'settings'
-
+	match '/users/new' => 'users#new', :as => 'new_users'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
