@@ -96,19 +96,21 @@ class CacheStatistic < ActiveRecord::Base
     (0...log_lines.length).step(sample_rate) do |log_num|
       hash = CacheStatistic.parse(log_lines[log_num])
       if count < 0
-      CacheStatistic.create()
+        CacheStatistic.create()
+      end
     end
   end
-  
+=begin  
   def self.hash_add(h1, h2, dont_add)
     create_hash = {}
     h1.keys.each do |key|
-      unless key in dont_add
-        create_hash[key] = h1[key] + h2[key]
+      if key in dont_add
+        create_hash[key] = h1[key] + h2[key] 
+      end
     end
     return create_hash
   end
-  
+=end
   def self.hash_divide(h1, count)
     h1.keys.each do |key|
       h1[key] = h1[key]/count
