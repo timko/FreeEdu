@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   #you should assign:
   #  @courses: should be an array of all course objects
   def index
-    CacheStatistic.create_from_file
+    CacheStatistic.create_from_file('app/assets/server_traffic.log', 10)
     @courses = Course.all
     @graph = CacheStatistic.get_selected_graph(['num_of_users','storage_donated','server_load'])
     latest_stat = CacheStatistic.order("log_time DESC").limit(1)[0]
