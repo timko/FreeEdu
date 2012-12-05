@@ -39,8 +39,9 @@ class CacheStatistic < ActiveRecord::Base
 
   def self.extract_sorted_stats(stat_field_list, n = CacheStatistic.count)
     to_return = []
-    stat_field_list << "log_time"
-    stats = CacheStatistic.order("log_time DESC").select(stat_field_list.join(", ")).limit(n)
+    new_stat_field_list = stat_field_list
+    new_stat_field_list << "log_time"
+    stats = CacheStatistic.order("log_time DESC").select(new_stat_field_list.join(", ")).limit(n)
     stats.each do |stat|
       stat_hash = {}
       stat_field_list.each do |field|
