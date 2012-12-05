@@ -32,9 +32,9 @@ class CacheStatistic < ActiveRecord::Base
 
   def self.color_alerts
     {'green' => 'We got plenty of donors; thank you for your patronage!',
-     'yellow' => 'Server is having a little trouble; your computing resources would be greatly appreciated', 
+     'yellow' => 'Our servers are having a little trouble; your computing resources would be greatly appreciated', 
      'orange' => 'Our servers are working pretty hard; please donate your computing resources so we can maintain a free service',
-     'red' => "WE'RE FUCKED; PLEASE HELP US"}
+     'red' => "Our servers are having a really hard time; please help us by donating your computing resources!"}
   end
 
   def self.extract_sorted_stats(stat_field_list)
