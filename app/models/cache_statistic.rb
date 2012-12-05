@@ -15,7 +15,7 @@ class CacheStatistic < ActiveRecord::Base
   end
 
   def self.stat_names
-    {'num_of_users' => 'Users','bandwidth_donated' => 'Bandwidth Donated(Mbps)', 'bandwidth_demand' => 'Bandwidth Demand(Mbps)', 'bandwidth_effectively_used' => 'Bandwidth Used(Mbps)', 'num_of_caches' => 'Caches', 'server_load' => 'Server Load(Mbps)',  'storage_donated' => 'Storage Donated(GB)'}
+    {'num_of_users' => 'Users','bandwidth_donated' => 'Bandwidth Donated (Mbps)', 'bandwidth_demand' => 'Bandwidth Demand (Mbps)', 'bandwidth_effectively_used' => 'Bandwidth Used (Mbps)', 'num_of_caches' => 'Caches', 'server_load' => 'Server Load (Mbps)',  'storage_donated' => 'Storage Donated (GB)'}
   end 
 
   def self.stat_descriptions
