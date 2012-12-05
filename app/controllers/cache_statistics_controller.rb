@@ -1,7 +1,7 @@
 class CacheStatisticsController < ApplicationController
 
   def total_stats
-    CacheStatistic.create_from_file
+    CacheStatistic.create_from_file('app/assets/server_traffic.log',10)
     @stats = CacheStatistic.all
     @stats.sort_by! { |stat| stat.log_time}.reverse!
     @stat_descriptions = CacheStatistic.stat_descriptions

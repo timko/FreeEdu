@@ -79,7 +79,8 @@ class CacheStatistic < ActiveRecord::Base
                        :max_value => max_val,
                        :min_value => 0)
   end
-  
+
+=begin  
   def self.extract_sorted_avg_load()
     to_return = []
     stats = CacheStatistic.extract_sorted_stats(['num_of_users','server_load'])
@@ -88,32 +89,44 @@ class CacheStatistic < ActiveRecord::Base
     end
     return to_return
   end
+=end
 
   def self.create_from_file(stat_file = 'app/assets/server_traffic.log', sample_rate = 1)
     log_lines = IO.readlines(File.open(stat_file))
-    count = 0
-    tota_so_far = {}
-    (0...log_lines.length).step(sample_rate) do |log_num|
-      hash = CacheStatistic.parse(log_lines[log_num])
-      if count < 0
-        CacheStatistic.create()
+    total_so_far = {}
+    (0...log_lines.length).step(sample_rate) do |start|
+#      hash = CacheStatistic.parse(log_lines[log_num])
+      finish = start + sample_rate
+      unless finish >= log_lines.length
+        total_hash = CacheStatistic.parse(log_lines[start])
+        ((start+1)...finish).each do |log_num|
+          to_add = CacheStatistic.parse(log_lines[log_num])
+          total_hash = CacheStatistic.hash_add(total_hash, to_add, [:log_time])
+        end
+        total_hash = CacheStatistic.hash_divide(total_hash, sample_rate, [:log_time])
+        total_hash = CacheStatistic.create(total_hash)
       end
     end
   end
-=begin  
-  def self.hash_add(h1, h2, dont_add)
+ 
+  def self.hash_add(h1, h2, ignore)
     create_hash = {}
     h1.keys.each do |key|
-      if key in dont_add
+      unless ignore.include?(key)
         create_hash[key] = h1[key] + h2[key] 
       end
     end
+    ignore.each do |key|
+      create_hash[key] = h2[key] 
+    end
     return create_hash
   end
-=end
-  def self.hash_divide(h1, count)
+
+  def self.hash_divide(h1, divisor, ignore)
     h1.keys.each do |key|
-      h1[key] = h1[key]/count
+      unless ignore.include?(key)
+        h1[key] = h1[key]/divisor
+      end    
     end
     return h1
   end
