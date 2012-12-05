@@ -8,7 +8,7 @@ class CoursesController < ApplicationController
     @graph = CacheStatistic.get_selected_graph(['num_of_users','storage_donated','server_load'])
     latest_stat = CacheStatistic.order("log_time DESC").limit(1)[0]
     load_to_demand = latest_stat.server_load.to_f/ latest_stat.bandwidth_demand
-    @progress_bar_type = "progress progress-info"
+    @progress_bar_type = "progress progress-"
 		@load_to_demand_percentage = load_to_demand*100
 
     @bar = "bar_good.png"
@@ -18,16 +18,18 @@ class CoursesController < ApplicationController
       if load_to_demand <= 0.3
         @server_state = 'yellow'
         @bar = 'bar_ok.png'
-				@progress_bar_type = "progress progress-success"
+				@progress_bar_type += "success"
       elsif load_to_demand <= 0.6
         @server_state = 'orange'
         @bar = 'bar_not_ok.png'
-				@progress_bar_type = "progress progress-warning"
+				@progress_bar_type += "warning"
       else
         @server_state = 'red'
         @bar = 'bar_bad.png'
-				@progress_bar_type = "progress progress-danger"
+				@progress_bar_type += "danger"
       end
+    else
+      @progress_bar_type += "info"
     end  
   end
 

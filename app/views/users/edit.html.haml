@@ -1,20 +1,26 @@
 %h1 Settings
 = form_tag user_path(@user), :method => :put do
 
-  %h5 Cache Settings
-  Disk Space
-  %i.icon-question-sign{:title => "This is the maximum amount of disk space that you are opening up to the community to use as a cache."}
-  %br
-  = text_field :user, 'disk_space'
-  MB
-  
-  %br
-  Bandwidth
-  %i.icon-question-sign{:title => "This is the maximum amount of bandwidth that you are giving to the community in order to distribute the data stored in your cache."}
-  %br
-  = text_field :user, 'bandwidth'
-  = 'kb/s'
-  
+  .row
+    .span4
+      %h5 Cache Settings
+      Disk Space
+      %i.icon-question-sign{:title => "This is the maximum amount of disk space that you are opening up to the community to use as a cache."}
+      %br
+      = text_field :user, 'disk_space'
+      MB
+      
+      %br
+      Bandwidth
+      %i.icon-question-sign{:title => "This is the maximum amount of bandwidth that you are giving to the community in order to distribute the data stored in your cache."}
+      %br
+      = text_field :user, 'bandwidth'
+      = 'kb/s'
+    .span8
+      %h4
+        ="By donating disk space and bandwidth, you help keep this website free to use, without resorting to advertisements. The amount of disk space and bandwidth that you choose to donate is immediately given back to you once you log out, and you never have to pay a single cent!"
+      %h3
+        ="Thank you for donating!"
   %br
   %br
  
