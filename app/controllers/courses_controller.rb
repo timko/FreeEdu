@@ -10,27 +10,19 @@ class CoursesController < ApplicationController
     load_to_demand = latest_stat.server_load.to_f/ latest_stat.bandwidth_demand
     @progress_bar_type = "progress progress-"
 		@load_to_demand_percentage = load_to_demand*100
-
-    @bar = "bar_good.png"
-    @color_alerts = CacheStatistic.color_alerts
-    @server_state = 'green'
-    if load_to_demand > 0.1
-      if load_to_demand <= 0.3
-        @server_state = 'yellow'
-        @bar = 'bar_ok.png'
-				@progress_bar_type += "success"
-      elsif load_to_demand <= 0.6
-        @server_state = 'orange'
-        @bar = 'bar_not_ok.png'
-				@progress_bar_type += "warning"
-      else
-        @server_state = 'red'
-        @bar = 'bar_bad.png'
-				@progress_bar_type += "danger"
-      end
-    else
+    
+    if load_to_demand <= 0.1
+      @server_alert = CacheStatistic.color_alerts['green']
       @progress_bar_type += "info"
-    end  
+    elsif load_to_demand <= 0.3
+      @server_alert = CacheStatistic.color_alerts['yellow']
+      @progress_bar_type += "success"
+    elsif load_to_demand <= 0.6
+      @server_alert = CacheStatistic.color_alerts['orange']
+      @progress_bar_type += "warning"
+    else
+      @server_alert = CacheStatistic.color_alerts['red']
+      @progress_bar_type += "danger"
+    end
   end
-
 end
