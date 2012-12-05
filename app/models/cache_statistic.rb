@@ -37,45 +37,55 @@ class CacheStatistic < ActiveRecord::Base
      'red' => "Our servers are having a really hard time; please help us by donating your computing resources!"}
   end
 
-  def self.extract_sorted_stats(stat_field_list)
+  def self.extract_sorted_stats(stat_field_list, n = CacheStatistic.count)
     to_return = []
-    stats = CacheStatistic.order(:log_time).select(stat_field_list.join(", "))
+    stat_field_list << "log_time"
+    stats = CacheStatistic.order("log_time DESC").select(stat_field_list.join(", ")).limit(n)
     stats.each do |stat|
       stat_hash = {}
       stat_field_list.each do |field|
         stat_hash[field] = stat.send(field)
       end
+      stat_hash[:log_time] = stat.log_time
       to_return << stat_hash
     end
     return to_return
   end
 
-  def self.get_selected_graph(stats_list)
-    raw_stats = self.extract_sorted_stats(stats_list)
+  def self.get_selected_graph(stats_list, x_count, n = CacheStatistic.count)
+    raw_stats = self.extract_sorted_stats(stats_list, n)
     data_list = []
     legend_list = []
     colors_list = []
+    x_axis = []
+    interval = raw_stats.length/x_count
+    (0...(raw_stats.length)).step(interval) do |num|
+      log_time = raw_stats[num][:log_time]
+      x_axis << log_time.strftime("%H:%M:%S")
+    end
     max_val = 2000
     stats_list.each do |stat|
-      to_add = []
-      raw_stats.each do |collection|
-        num = collection[stat]
-        if num > max_val
-          max_val = num
+      unless stat == "log_time"
+        to_add = []
+        raw_stats.each do |collection|
+          num = collection[stat]
+          if num > max_val
+            max_val = num
+          end
+          to_add << num
         end
-        to_add << num
+        data_list << to_add.reverse
+        legend_list << self.stat_names[stat]
+        colors_list << self.stat_colors[stat]
       end
-      data_list << to_add
-      legend_list << self.stat_names[stat]
-      colors_list << self.stat_colors[stat]
     end
     return Gchart.line(:title => 'Cache Statistics Over Time',
                        :data =>data_list,
-                       :size => '800x300',
+                       :size => '700x300',
                        :legend => legend_list,
                        :line_colors => colors_list.join(','),
                        :axis_with_labels => 'x,y',
-                       :axis_labels => [['Jan', 'Feb', 'March', 'April', 'May']],
+                       :axis_labels => [x_axis.reverse],
                        :max_value => max_val,
                        :min_value => 0)
   end
@@ -101,9 +111,11 @@ class CacheStatistic < ActiveRecord::Base
         total_hash = CacheStatistic.parse(log_lines[start])
         ((start+1)...finish).each do |log_num|
           to_add = CacheStatistic.parse(log_lines[log_num])
-          total_hash = CacheStatistic.hash_add(total_hash, to_add, [:log_time])
+          total_hash = CacheStatistic.hash_add(total_hash, to_add, [:log_time, :server_load])
         end
-        total_hash = CacheStatistic.hash_divide(total_hash, sample_rate, [:log_time])
+        total_hash = CacheStatistic.hash_divide(total_hash, sample_rate, [:log_time, :server_load])
+        suggested_server_load = (total_hash[:bandwidth_demand] - total_hash[:bandwidth_effectively_used])
+        total_hash[:server_load] = [suggested_server_load, 0].max
         total_hash = CacheStatistic.create(total_hash)
       end
     end
@@ -143,6 +155,10 @@ class CacheStatistic < ActiveRecord::Base
     create_hash[:bandwidth_effectively_used] = hash_values[7].to_f
     create_hash[:server_load] = hash_values[8].to_f
     return create_hash
+  end
+
+  def self.get_n_latest_records(n = CacheStatistic.count)
+    return CacheStatistic.order("log_time DESC").limit(n)
   end
 
 end
