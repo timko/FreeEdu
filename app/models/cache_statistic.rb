@@ -64,9 +64,10 @@ class CacheStatistic < ActiveRecord::Base
       log_time = raw_stats[num][:log_time]
       x_axis << log_time.strftime("%H:%M:%S")
     end
+    stats_list.delete("log_time")
     max_val = 2000
     stats_list.each do |stat|
-      unless stat == "log_time"
+#      unless stat == "log_time"
         to_add = []
         raw_stats.each do |collection|
           num = collection[stat]
@@ -78,7 +79,7 @@ class CacheStatistic < ActiveRecord::Base
         data_list << to_add.reverse
         legend_list << self.stat_names[stat]
         colors_list << self.stat_colors[stat]
-      end
+#      end
     end
     return Gchart.line(:title => 'Cache Statistics Over Time',
                        :data =>data_list,
@@ -108,7 +109,7 @@ class CacheStatistic < ActiveRecord::Base
     (0...log_lines.length).step(sample_rate) do |start|
 #      hash = CacheStatistic.parse(log_lines[log_num])
       finish = start + sample_rate
-      unless finish >= log_lines.length
+      unless finish > log_lines.length
         total_hash = CacheStatistic.parse(log_lines[start])
         ((start+1)...finish).each do |log_num|
           to_add = CacheStatistic.parse(log_lines[log_num])
@@ -117,7 +118,7 @@ class CacheStatistic < ActiveRecord::Base
         total_hash = CacheStatistic.hash_divide(total_hash, sample_rate, [:log_time, :server_load])
         suggested_server_load = (total_hash[:bandwidth_demand] - total_hash[:bandwidth_effectively_used])
         total_hash[:server_load] = [suggested_server_load, 0].max
-        total_hash = CacheStatistic.create(total_hash)
+        CacheStatistic.create(total_hash)
       end
     end
   end
