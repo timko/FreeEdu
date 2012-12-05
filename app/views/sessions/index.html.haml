@@ -1,5 +1,5 @@
 %h2 Welcome.
-%h3 Please log in.
+%h3 Please sign in.
 
 = form_tag('/login') do
   Name
@@ -10,7 +10,7 @@
   %br
   = password_field :user, :password
   %br
-  = submit_tag("Sign in")
+  = submit_tag("Sign in", :class => 'btn btn-primary')
   
 %h4 New User?
-= link_to "Sign up", :action => "new", :controller => "users"
+= link_to "Sign up", {:action => "new", :controller => "users"}, :class => 'btn btn-primary'

@@ -1,5 +1,5 @@
-%h1 Total Statistics
-
+%h1{:align => 'center'} Total Statistics
+%br
 .row-fluid
   .span9
     = image_tag(@graph)
@@ -13,7 +13,8 @@
         = @real_stat_names[stat]
         %i.icon-question-sign{:title => @stat_descriptions[stat]}
         %br
-      = submit_tag 'Update', :id => 'stats_submit'
+      %br
+      = submit_tag 'Update', :id => 'stats_submit', :class => 'btn btn-primary'
 
 %br
 %table#total_stats.table.table-striped.table-bordered

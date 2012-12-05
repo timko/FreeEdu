@@ -15,7 +15,7 @@ class CacheStatistic < ActiveRecord::Base
   end
 
   def self.stat_names
-    {'num_of_users' => 'Users','bandwidth_donated' => 'Bandwidth Donated(Mbps)', 'bandwidth_demand' => 'Bandwidth Demand(Mbps)', 'bandwidth_effectively_used' => 'Bandwidth Used(Mbps)', 'num_of_caches' => 'Caches', 'server_load' => 'Server Load(Mbps)',  'storage_donated' => 'Storage Donated(GB)'}
+    {'num_of_users' => 'Users','bandwidth_donated' => 'Bandwidth Donated (Mbps)', 'bandwidth_demand' => 'Bandwidth Demand (Mbps)', 'bandwidth_effectively_used' => 'Bandwidth Used (Mbps)', 'num_of_caches' => 'Caches', 'server_load' => 'Server Load (Mbps)',  'storage_donated' => 'Storage Donated (GB)'}
   end 
 
   def self.stat_descriptions
@@ -31,10 +31,10 @@ class CacheStatistic < ActiveRecord::Base
   end
 
   def self.color_alerts
-    {'green' => 'We got plenty of donors; thank you for your patronage!',
-     'yellow' => 'Our servers are having a little trouble; your computing resources would be greatly appreciated', 
-     'orange' => 'Our servers are working pretty hard; please donate your computing resources so we can maintain a free service',
-     'red' => "Our servers are having a really hard time; please help us by donating your computing resources!"}
+    {'green' => 'Servers are running smoothly; this is the result of your contribution, thank you for your patronage!',
+     'yellow' => 'Servers are slightly loaded; donating your computing resources would be greatly appreciated', 
+     'orange' => 'Servers are currently loaded; please donate your computing resources so we can maintain a free service',
+     'red' => "Servers are overloaded right now; please go the settings menu to increase your donated resources"}
   end
 
   def self.extract_sorted_stats(stat_field_list, n = CacheStatistic.count)
