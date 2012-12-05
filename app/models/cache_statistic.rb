@@ -91,9 +91,29 @@ class CacheStatistic < ActiveRecord::Base
 
   def self.create_from_file(stat_file = 'app/assets/server_traffic.log', sample_rate = 1)
     log_lines = IO.readlines(File.open(stat_file))
+    count = 0
+    tota_so_far = {}
     (0...log_lines.length).step(sample_rate) do |log_num|
-      CacheStatistic.create(CacheStatistic.parse(log_lines[log_num]))
+      hash = CacheStatistic.parse(log_lines[log_num])
+      if count < 0
+      CacheStatistic.create()
     end
+  end
+  
+  def self.hash_add(h1, h2, dont_add)
+    create_hash = {}
+    h1.keys.each do |key|
+      unless key in dont_add
+        create_hash[key] = h1[key] + h2[key]
+    end
+    return create_hash
+  end
+  
+  def self.hash_divide(h1, count)
+    h1.keys.each do |key|
+      h1[key] = h1[key]/count
+    end
+    return h1
   end
   
   def self.parse(log_string)
