@@ -2,7 +2,7 @@
   = @server_alert
 
 
-%h2#settings{:align => "center"} Server Load Status
+%h2{:align => 'center'} Server Load Status
 
 -#= image_tag(@graph)
 
@@ -11,12 +11,14 @@
   %div.span8
     %div.progress-striped{:class=>@progress_bar_type}
       %div.bar{:style=>"width: #{@load_to_demand_percentage}%"}
-%h1 Courses
-
-%div#settings{:align => "right"}
-  =link_to 'Total Cache Statistics', total_stats_path, :style => "text-decoration: none", :class => 'btn btn-primary'
-/  - if @current_user
-/    =button_to 'Cache Settings', settings_path
+.row-fluid
+  .span9
+    %h1 
+      Courses
+  .span3
+    %br
+    %div#settings{:align => "right"}
+      =link_to 'Total Cache Statistics', total_stats_path, :style =>    "text-decoration: none", :class => 'btn btn-primary'
   
   
 %br
