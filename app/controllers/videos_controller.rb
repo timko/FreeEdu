@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
 
+  #/courses/:course_id/videos/:video_name
   def show
     id = params[:id].gsub('_', ' ')
     @course = Course.find(params[:course_id])
@@ -8,6 +9,7 @@ class VideosController < ApplicationController
     @related_videos.delete(@video)
   end
 
+  #/courses/:course_id/videos
   def index
     @course = Course.find(params[:course_id])
     @videos = @course.videos.all
