@@ -3,4 +3,3 @@ log/*
 tmp/*
 coverage/*
 db/development.sqlite3
-
