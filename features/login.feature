@@ -1,8 +1,8 @@
 Feature: Login to existing account
 
-As a User
-So that I can customize my settings
-I want to login to my existing account
+  As a User
+  So that I can customize my settings
+  I want to login to my existing account
 
 Background: users have been added to the database
 
@@ -30,7 +30,7 @@ Scenario: Using a non existing username
   And I should be on the login page
 
 Scenario: Logging out
-	Given I am logged in as "User1" with password "x"
+  Given I am logged in as "User1" with password "x"
   When I follow "Logout"
   Then I should see "Logged out successfully."
-	And I should be on the homepage
+  And I should be on the homepage

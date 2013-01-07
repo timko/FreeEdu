@@ -1,8 +1,8 @@
 Feature: Host an online platform
 
-As a student
-So that I can supplement my learning
-I want to take a course with an online platform
+  As a student
+  So that I can supplement my learning
+  I want to take a course with an online platform
 
 Background: courses have been added to the database
   

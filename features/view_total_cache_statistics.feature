@@ -1,4 +1,5 @@
 Feature: View total cache statistics
+
   As a user
   So I can see the total amount of money saved by this website
   I want to view the total cache statistics for the site

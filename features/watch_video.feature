@@ -1,4 +1,5 @@
 Feature: watch a video from a course
+
   As a user
   In order to learn more about life and the universe
   I want to watch videos for available courses

@@ -1,8 +1,8 @@
 Feature: Change your Settings
 
-As a User
-So that I can help the website save money
-I want to contribute part of my disk space
+  As a User
+  So that I can help the website save money
+  I want to contribute part of my disk space
 
 Background: users have been added to the database
 
@@ -29,7 +29,6 @@ Scenario: Successfully changing Settings
 Scenario: Inputting invalid characters into disk space field
 
   Given I am logged in as "User1" with password "x"
-  #Then show me the page
   When I follow "Settings"
   Then I should see "Disk Space"
   And I should see "Bandwidth"
@@ -44,7 +43,6 @@ Scenario: Inputting invalid characters into disk space field
 Scenario: Inputting invalid characters into bandwidth field
 
   Given I am logged in as "User1" with password "x"
-  #Then show me the page
   When I follow "Settings"
   Then I should see "Disk Space"
   And I should see "Bandwidth"
