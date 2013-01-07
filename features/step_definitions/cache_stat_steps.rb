@@ -10,10 +10,9 @@ When /I (un)?check the following stats: "(.*)"/ do |uncheck, stat_list|
   end
 end
 
-Then /the following checkboxes should( not)? be checked: "(.*)"/ do |uncheck, stat_list|
+Then /the following checkboxes should (not )?be checked: "(.*)"/ do |uncheck, stat_list|
   selected = stat_list.split(',')
-  unsee = unsee == ' not' ? ' not' : ''
   selected.each do |stat|
-    step "the \"stats_#{stat.strip}\" checkbox should#{uncheck} be checked"
+    step "the \"stats_#{stat.strip}\" checkbox should #{uncheck}be checked"
   end
 end

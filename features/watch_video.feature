@@ -12,7 +12,7 @@ Background: courses have been added to the database
   |Computer Science |CS169   |
   |Biology          |BIO1A   |
 
-  Given the following videos exist:([^"].*)$
+  Given the following videos exist:
   |name        | time    | size | source                               | course_id |
   |TDD         | "30:40" | 5MB  | 'https://www.youtube.com/embed/Fr-B4xHZRzY?feature=player_embedded' | 2         |
   |BDD         | "30:40" | 5MB  | 'https://www.youtube.com/embed/Fr-B4xHZRzY?feature=player_embedded' | 2         |
