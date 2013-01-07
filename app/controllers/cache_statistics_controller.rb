@@ -32,15 +32,4 @@ class CacheStatisticsController < ApplicationController
     render 'statistics/total'
   end
 
-  #/statistics/:field
-  def field_stats
-    #Get extracted fields
-    @stats = CacheStatistic.extract_sorted_stats(params[:fields])
-    if @stats == []
-      flash[:notice] = "You didn't specify any fields"
-      redirect_to '/' and return
-    end
-    render 'statistics/fields'
-  end
-
 end
