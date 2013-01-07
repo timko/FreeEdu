@@ -3,7 +3,7 @@ class CacheStatistic < ActiveRecord::Base
   attr_accessible :storage_donated, :bandwidth_donated, :bandwidth_effectively_used, :server_load
   validates :log_time, :uniqueness => true
 
-#note that log_time is not included in here
+  #Log_time is purposely not included
   def self.all_stats
     ['num_of_users', 'bandwidth_demand', 'bandwidth_donated', 'bandwidth_effectively_used', 
      'num_of_caches','server_load', 'storage_donated']
