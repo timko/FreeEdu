@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
   has_secure_password
 
+  #To ensure validity, disk_space and bandwidth are set to 0 if unset
   before_save :validate_disk_space, :validate_bandwidth
 
   def validate_disk_space
