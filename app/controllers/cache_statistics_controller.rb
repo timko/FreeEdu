@@ -1,7 +1,9 @@
 class CacheStatisticsController < ApplicationController
 
+  #/statistics/total
   def total_stats
-    #Getting updated stats from log file (logs already in the database are not re-added)
+    #Getting updated stats from log file
+    #Logs are added to the database then extracted (Already added logs are not re-logged
     CacheStatistic.create_from_file('app/assets/server_traffic.log', 10)
     @stats = CacheStatistic.get_n_latest_records(20)
     @stats.sort_by! { |stat| stat.log_time}.reverse!
@@ -30,7 +32,9 @@ class CacheStatisticsController < ApplicationController
     render 'statistics/total'
   end
 
+  #/statistics/:field
   def field_stats
+    #Get extracted fields
     @stats = CacheStatistic.extract_sorted_stats(params[:fields])
     if @stats == []
       flash[:notice] = "You didn't specify any fields"
