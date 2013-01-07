@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
 
+  #/courses
   #you should assign:
   #  @courses: should be an array of all course objects
   def index
