@@ -4,8 +4,6 @@
 
 %h2{:align => 'center'} Server Load Status
 
--#= image_tag(@graph)
-
 %div.row
   %div.span2
   %div.span8
@@ -18,8 +16,7 @@
   .span3
     %br
     %div#settings{:align => "right"}
-      =link_to 'Total Cache Statistics', total_stats_path, :style =>    "text-decoration: none", :class => 'btn btn-primary'
-  
+      =link_to 'Total Cache Statistics', total_stats_path, :style => "text-decoration: none", :class => 'btn btn-primary'
   
 %br
 %table#courses.table.table-striped.table-bordered
