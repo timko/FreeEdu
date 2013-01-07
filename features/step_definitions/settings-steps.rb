@@ -9,4 +9,3 @@ Given /^(?:|I )am not logged in as a user$/ do
 	step %Q{I am on the homepage}
   step %Q{I should see "Login"}
 end
-
