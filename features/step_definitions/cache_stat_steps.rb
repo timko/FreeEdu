@@ -3,9 +3,6 @@ Given /the database is updated/ do
 end
 
 When /I (un)?check the following stats: "(.*)"/ do |uncheck, stat_list|
-  # HINT: use String#split to split up the rating_list, then
-  #   iterate over the ratings and reuse the "When I check..." or
-  #   "When I uncheck..." steps in lines 89-95 of web_steps.rb
   selected = stat_list.split(',')
   no_check = uncheck == 'un' ? 'un' : ''
   selected.each do |stat|
