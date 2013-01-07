@@ -1,4 +1,5 @@
 module ApplicationHelper
+  #Helper for getting the class name for server load bar
 	def flash_class(level)
     case level
     when :notice then "alert-info"
