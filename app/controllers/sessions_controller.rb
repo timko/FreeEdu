@@ -1,14 +1,12 @@
 class SessionsController < ApplicationController
   
+  #/auth
   def index
-=begin
-    if session[:user_id]
-      redirect_to settings_path and return
-    end
-=end
   end
 
+  #/login
   def create
+    #Authentication (done by built-in has_secure_password)
     @user = User.find_by_name(params[:user][:name])
     if @user and @user.authenticate(params[:user][:password])
       flash[:notice] = "You have successfully logged in"
@@ -20,6 +18,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  #/logout
   def destroy
     session.delete(:user_id)
     flash[:notice] = 'Logged out successfully.'
