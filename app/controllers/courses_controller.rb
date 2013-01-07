@@ -14,7 +14,7 @@ class CoursesController < ApplicationController
     #Getting data for server load bar
     latest_stat = CacheStatistic.order("log_time DESC").limit(1)[0]
     load_to_demand = latest_stat.server_load.to_f/ latest_stat.bandwidth_demand
-    @progress_bar_header = "progress progress-"
+    @progress_bar_type = "progress progress-"
     
     #Server load percentage
 		@load_to_demand_percentage = load_to_demand*100
